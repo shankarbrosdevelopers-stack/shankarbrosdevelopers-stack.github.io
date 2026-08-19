@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hanuman Chalisa: Read & Listen</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* App Specific Styles */
+        .app-hero {
+            padding: 10rem 0 6rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .app-hero-split {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .app-hero-content .badge {
+            background: rgba(255, 255, 255, 0.8);
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .app-hero-content h1 {
+            font-size: 5rem;
+            line-height: 1;
+            margin-bottom: 1.5rem;
+        }
+
+        .app-hero-content h1 span {
+            color: var(--pastel-pink);
+        }
+
+        .app-hero-content p {
+            font-size: 1.1rem;
+            max-width: 500px;
+            margin-bottom: 2.5rem;
+        }
+
+        .app-hero-btns {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .app-mockup {
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+
+        .app-mockup img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 24px;
+            /* shadow-xl already defined, but let's make it bigger for the phone */
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+
+        .social-proof {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        .avatars {
+            display: flex;
+            margin-right: 0.5rem;
+        }
+
+        .avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            border: 2px solid white;
+            margin-left: -12px;
+            background: #e5e7eb;
+        }
+
+        .avatar:first-child { margin-left: 0; }
+
+        /* Features Section */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card-app {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 24px;
+            border: 1px solid rgba(0,0,0,0.03);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card-app:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon-box {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-card-app h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .feature-card-app p {
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* Steps Section */
+        .steps-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .step-card {
+            padding: 3rem 2rem;
+            border-radius: 32px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .step-number {
+            font-family: var(--font-serif);
+            font-size: 3rem;
+            opacity: 0.2;
+            margin-bottom: 1rem;
+        }
+
+        .step-card h3 {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .step-card p {
+            font-size: 0.95rem;
+            color: var(--text-primary);
+            opacity: 0.7;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .app-hero-split { grid-template-columns: 1fr; text-align: center; }
+            .app-hero-content p { margin-left: auto; margin-right: auto; }
+            .app-hero-btns { justify-content: center; }
+            .social-proof { justify-content: center; }
+            .steps-container { grid-template-columns: 1fr; }
+            .app-hero-content h1 { font-size: 3.5rem; }
+        }
+    </style>
+
+    <meta name="description" content="Shankarbros.dev - Hanuman Chalisa: Read & Listen. We build calm, minimal, and privacy-focused Android applications.">
+    <meta property="og:title" content="Hanuman Chalisa: Read & Listen">
+    <meta property="og:description" content="Shankarbros.dev - Hanuman Chalisa: Read & Listen. We build calm, minimal, and privacy-focused Android applications.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://shankarbros.dev/hanuman-chalisa.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Hanuman Chalisa: Read & Listen">
+    <meta name="twitter:description" content="Shankarbros.dev - Hanuman Chalisa: Read & Listen. We build calm, minimal, and privacy-focused Android applications.">
+    <link rel="canonical" href="https://shankarbros.dev/hanuman-chalisa.html">
+
+</head>
+<body>
+
+    <nav id="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">SB</div>
+                Shankarbros.dev <span style="color: var(--text-secondary); margin: 0 0.1rem; font-weight: 300;">/</span> Hanuman Chalisa
+            </a>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#how-it-works">How it works</a>
+                <a href="https://play.google.com/store/apps/details?id=com.shankarbros.hanumanchalisa&hl=en&gl=us" class="btn btn-dark" target="_blank">Get the app</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="app-hero">
+            <div class="bg-gradient-mesh" style="opacity: 0.3;"></div>
+            <div class="container">
+                <div class="app-hero-split">
+                    <div class="app-hero-content">
+                        <span class="badge" style="color: var(--accent-orange);">🕉️ Hanuman Chalisa · Spiritual</span>
+                        <h1>Read, listen, <span>track.</span></h1>
+                        <p>Listen, read, and track your daily Hanuman Chalisa recitations with audio</p>
+                        <div class="app-hero-btns">
+                            <a href="https://play.google.com/store/apps/details?id=com.shankarbros.hanumanchalisa&hl=en&gl=us" class="btn btn-dark" target="_blank">Get it on Google Play</a>
+                            <a href="#how-it-works" class="btn btn-outline">See how it works</a>
+                        </div>
+                        <div class="social-proof">
+                            <div class="avatars">
+                                <div class="avatar" style="background: var(--pastel-pink);"></div>
+                                <div class="avatar" style="background: var(--pastel-blue);"></div>
+                                <div class="avatar" style="background: var(--pastel-purple);"></div>
+                                <div class="avatar" style="background: var(--pastel-green);"></div>
+                            </div>
+                            <span>500+ downloads on Google Play · ⭐ New</span>
+                        </div>
+                    </div>
+                    <div class="app-mockup">
+                        <img src="https://play-lh.googleusercontent.com/FGDTEJPs8qBe6nSXwwxPKF0gd0z_P4s1ISDOyklpATdFBVw7sc7jZMz_kMxKMa3GeoH8PYUvXce81mLy1kL5" alt="Bloom App Mockup">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+        <section class="container" style="margin-top: 4rem; margin-bottom: 4rem;">
+            <div class="section-header" style="margin-bottom: 3rem; text-align: center;">
+                <span class="badge" style="color: var(--accent-orange); background: var(--accent-orange)15;">GALLERY</span>
+                <h2 style="font-size: 2.5rem; margin-top: 1rem;">Inside the app</h2>
+            </div>
+            
+            <style>
+                .screenshots-grid {
+                    display: grid;
+                    grid-template-columns: repeat(4, 1fr);
+                    gap: 1.5rem;
+                    align-items: start;
+                }
+                @media (max-width: 900px) {
+                    .screenshots-grid { grid-template-columns: repeat(2, 1fr); }
+                }
+                @media (max-width: 500px) {
+                    .screenshots-grid { grid-template-columns: 1fr; }
+                }
+            </style>
+            
+            <div class="screenshots-grid">
+                <img src="https://play-lh.googleusercontent.com/EGbKZ0Pzd_hEDhzOblu9FMQeQ0LbnyepLe_Purzw5cy9JSYnPcgGi8bvDH-oPNW2mFe5-bMHyjGZ1-RHNslG=w800" alt="Screenshot 1" style="width: 100%; height: auto; border-radius: 20px; box-shadow: 0 15px 35px -10px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05); object-fit: contain; background: var(--bg-secondary); transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)';" onmouseout="this.style.transform='none';">
+                <img src="https://play-lh.googleusercontent.com/N5yACsf_pFv8JRC6LKgYXCaYbgVjeAvDpRs0nsGrUgNpKGEW3F8q4DJ6Y6sBD4ry8V6grAWNJ16DBrBpNv3d4Q0=w800" alt="Screenshot 2" style="width: 100%; height: auto; border-radius: 20px; box-shadow: 0 15px 35px -10px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05); object-fit: contain; background: var(--bg-secondary); transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)';" onmouseout="this.style.transform='none';">
+                <img src="https://play-lh.googleusercontent.com/BSPXpdTgz9r09aXzovKQRX5Zy229SG1U5nyuxn-NP1qI0WksqnDSKOr6ertQ-1ioFobMED6WeKas6TAT_6KN=w800" alt="Screenshot 3" style="width: 100%; height: auto; border-radius: 20px; box-shadow: 0 15px 35px -10px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05); object-fit: contain; background: var(--bg-secondary); transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)';" onmouseout="this.style.transform='none';">
+                <img src="https://play-lh.googleusercontent.com/wc12a8ClWU0_f0NPecUMzd9ub2bwdHgWkwBmaNXwqvtea7zYr7Wx8ZGuPKQ-01pN4LUbXtEqq-Se2HXo_HCPjw=w800" alt="Screenshot 4" style="width: 100%; height: auto; border-radius: 20px; box-shadow: 0 15px 35px -10px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05); object-fit: contain; background: var(--bg-secondary); transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)';" onmouseout="this.style.transform='none';">
+
+            </div>
+        </section>
+
+        <section id="features" class="container">
+            <div class="section-header">
+                <span class="badge" style="color: var(--accent-orange);">🕉️ Hanuman Chalisa · Spiritual</span>
+                <h2>Everything you need, nothing you don't.</h2>
+            </div>
+
+            <div class="features-grid">
+
+                <div class="feature-card-app">
+                    <div class="feature-icon-box" style="background: var(--pastel-orange); font-size: 1.5rem; display: flex; align-items: center; justify-content: center;">
+                        📖
+                    </div>
+                    <h3>Read Clear</h3>
+                    <p>Large, readable fonts.</p>
+                </div>
+                <div class="feature-card-app">
+                    <div class="feature-icon-box" style="background: var(--pastel-blue); font-size: 1.5rem; display: flex; align-items: center; justify-content: center;">
+                        🎧
+                    </div>
+                    <h3>Listen Offline</h3>
+                    <p>High-quality audio playback.</p>
+                </div>
+                <div class="feature-card-app">
+                    <div class="feature-icon-box" style="background: var(--pastel-green); font-size: 1.5rem; display: flex; align-items: center; justify-content: center;">
+                        ✅
+                    </div>
+                    <h3>Track Chants</h3>
+                    <p>Keep a daily tally of your chants.</p>
+                </div>
+                <div class="feature-card-app">
+                    <div class="feature-icon-box" style="background: var(--pastel-purple); font-size: 1.5rem; display: flex; align-items: center; justify-content: center;">
+                        🌙
+                    </div>
+                    <h3>Dark Mode</h3>
+                    <p>Comfortable reading at night.</p>
+                </div>
+                <div class="feature-card-app">
+                    <div class="feature-icon-box" style="background: var(--pastel-pink); font-size: 1.5rem; display: flex; align-items: center; justify-content: center;">
+                        🛑
+                    </div>
+                    <h3>Minimum Ads</h3>
+                    <p>Designed to safeguard user focus.</p>
+                </div>
+                <div class="feature-card-app">
+                    <div class="feature-icon-box" style="background: var(--pastel-yellow); font-size: 1.5rem; display: flex; align-items: center; justify-content: center;">
+                        🌍
+                    </div>
+                    <h3>Multiple Languages</h3>
+                    <p>Read in Hindi, English, and more.</p>
+                </div>
+            </div>
+</section>
+
+        <section id="how-it-works" class="container">
+            <div class="section-header">
+                <h2>Three steps to devotion 🕉️</h2>
+            </div>
+            
+            <div class="steps-container">
+
+                <div class="step-card" style="background: var(--pastel-orange);">
+                    <div class="step-number">01</div>
+                    <h3>Open</h3>
+                    <p>Launch the app daily.</p>
+                </div>
+                <div class="step-card" style="background: var(--pastel-blue);">
+                    <div class="step-number">02</div>
+                    <h3>Chant</h3>
+                    <p>Read or listen along.</p>
+                </div>
+                <div class="step-card" style="background: var(--pastel-green);">
+                    <div class="step-number">03</div>
+                    <h3>Track</h3>
+                    <p>Log your completed chants.</p>
+                </div>
+            </div>
+</section>
+
+        
+        <section class="container" style="margin-top: 6rem; margin-bottom: 6rem;">
+            <div style="background: white; padding: 4rem; border-radius: 40px; border: 1px solid rgba(0,0,0,0.05); box-shadow: 0 20px 40px -15px rgba(0,0,0,0.05); position: relative; overflow: hidden;">
+                <!-- Decorative background element -->
+                <div style="position: absolute; top: 0; right: 0; width: 300px; height: 300px; background: var(--accent-orange); opacity: 0.05; filter: blur(60px); border-radius: 50%;"></div>
+                
+                <div class="section-header" style="text-align: left; margin-bottom: 3rem; position: relative; z-index: 1;">
+                    <span class="badge" style="color: var(--accent-orange); background: var(--accent-orange)15;">ABOUT THE APP</span>
+                    <h2 style="margin-top: 1rem; font-size: 2.5rem; letter-spacing: -0.02em;">Hanuman Chalisa: Read & Listen</h2>
+                </div>
+                
+                <div class="app-description" style="line-height: 1.8; color: var(--text-secondary); font-size: 1.1rem; position: relative; z-index: 1; max-width: 800px;">
+                    <p style="margin-bottom: 1.5rem;">📜 Hanuman Chalisa – Your Daily Spiritual Companion<br>Experience the divine power of Hanuman Chalisa with a clean, modern, and easy-to-use app designed for devotees of all ages. Whether you want to read, listen, memorize, or track your daily chanting, this app helps you stay connected spiritually every day.<br>________________________________________<br>✨ Key Features</p><p style="margin-bottom: 1.5rem;">🕉️ Clean &amp; Modern UI</p><p style="margin-bottom: 1.5rem;">A beautifully designed minimal interface that feels smooth, peaceful, and distraction-free.</p><p style="margin-bottom: 1.5rem;">📖 Hanuman Chalisa in 11 Languages<br><strong style="color: var(--text-primary); font-size: 1.2rem; display: block; margin-top: 2rem; margin-bottom: 0.5rem; border-bottom: 2px solid var(--bg-secondary); padding-bottom: 0.5rem;">Read in your preferred language with clear, easy-to-understand translations:</strong><br>•	Hindi<br>•	English<br>•	Tamil<br>•	Telugu<br>•	Kannada<br>•	Malayalam<br>•	Gujarati<br>•	Marathi<br>•	Bengali<br>•	Odia<br>•	Urdu</p><p style="margin-bottom: 1.5rem;">🎧 Lyric Player</p><p style="margin-bottom: 1.5rem;">Follow the lyrics while listening to the audio. The words highlight as the audio plays, making chanting easier.</p><p style="margin-bottom: 1.5rem;">📅 Daily Tracker<br>Track your daily reading or listening progress. Stay consistent with your devotion.</p><p style="margin-bottom: 1.5rem;">⏰ Notification Reminder<br>Set daily reminders to read or listen to Hanuman Chalisa at your preferred time.</p><p style="margin-bottom: 1.5rem;">🌙 Dark Mode<br>Enjoy a soothing night-friendly experience that reduces eye strain.</p><p style="margin-bottom: 1.5rem;">📘 Benefits of Hanuman Chalisa<br>Learn the spiritual, mental, and physical benefits of chanting the Chalisa.</p><p style="margin-bottom: 1.5rem;">📢 Minimal &amp; Non-Intrusive Ads<br>Ads are placed carefully so they never disturb your spiritual experience.</p><p style="margin-bottom: 1.5rem;">________________________________________<br>🙏 Why Use This App?</p><p style="margin-bottom: 1.5rem;">•	Strengthens focus and positivity<br>•	Helps build a daily habit of devotion<br>•	Easy to use for beginners and regular readers<br>•	Works offline after first use<br>________________________________________<br>🌟 Begin Your Spiritual Journey</p><p style="margin-bottom: 1.5rem;">The Hanuman Chalisa app is built to keep you inspired, calm, and spiritually connected—anytime, anywhere.<br>Download now and bring the blessings of Lord Hanuman into your daily life. 🙏✨</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="container">
+            <div class="cta-banner">
+                <h2>Ready to bloom?</h2>
+                <p>Free on Google Play. No ads, no judgement, just gentle progress.</p>
+                <div style="display: flex; gap: 1rem; justify-content: center;">
+                    <a href="https://play.google.com/store/apps/details?id=com.shankarbros.hanumanchalisa&hl=en&gl=us" class="btn btn-dark" target="_blank">Get it on Google Play</a>
+                    <a href="#" class="btn btn-outline" style="background: white;">Join the newsletter</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">SB</div>
+                Shankarbros.dev <span style="color: var(--text-secondary); margin: 0 0.1rem; font-weight: 300;">/</span> Hanuman Chalisa
+            </a>
+            <p class="copyright">© 2026 Shankarbros.dev. Made with love for happier mornings.</p>
+        </div>
+    </footer>
+
+    <script>
+        window.addEventListener('scroll', function() {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Apps | Shankarbros.dev</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Home Specific Styles */
+        .hero {
+            position: relative;
+            padding: 10rem 0 2rem;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .hero-badge {
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(0,0,0,0.05);
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            color: var(--text-secondary);
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero h1 span {
+            display: block;
+            background: linear-gradient(90deg, #9333ea, #ec4899, #f43f5e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+        }
+
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 3rem;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .stats span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Filter Section */
+        .section-header {
+            margin-bottom: 3rem;
+        }
+
+        .section-header .badge {
+            color: var(--accent-pink); /* Improved contrast */
+            background: transparent;
+            border: none;
+            padding-left: 0;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .filters {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+
+        .filter-btn {
+            padding: 0.5rem 1.25rem;
+            border-radius: 9999px;
+            border: 1px solid #e5e7eb;
+            background: white;
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .filter-btn.active {
+            background: var(--dark-btn);
+            color: white;
+            border-color: var(--dark-btn);
+        }
+
+        /* App Grid */
+        .app-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem; /* Added padding/margin below the cards */
+        }
+
+        .app-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 24px;
+            border: 1px solid rgba(0,0,0,0.03);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .app-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .app-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .app-status {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 0.25rem 0.6rem;
+            border-radius: 6px;
+        }
+
+        .status-available { background: #f0fdf4; color: #166534; }
+        .status-new { background: #eff6ff; color: #1e40af; }
+        .status-beta { background: #f5f3ff; color: #5b21b6; }
+
+        .app-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .app-category {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .app-card p {
+            font-size: 0.95rem;
+            margin-bottom: 2rem;
+            flex-grow: 1;
+        }
+
+        .app-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        .view-link {
+            color: var(--accent-pink); /* Improved contrast */
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        /* About Section */
+        .about-split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 2.75rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+
+        .feature-card h4 {
+            font-size: 1.1rem;
+            margin-top: 1rem;
+        }
+
+        .feature-card p {
+            font-size: 0.8rem;
+            font-family: var(--font-sans);
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        @media (max-width: 900px) {
+            .about-split { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 3rem; }
+        }
+    </style>
+
+    <meta name="description" content="Shankarbros.dev - A small team that loves shipping calm software. Discover our colorful, minimal Android applications.">
+    <meta property="og:title" content="Shankarbros.dev | Colorful Android Apps">
+    <meta property="og:description" content="Shankarbros.dev - A small team that loves shipping calm software. Discover our colorful, minimal Android applications.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://shankarbros.dev/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Shankarbros.dev | Colorful Android Apps">
+    <meta name="twitter:description" content="Shankarbros.dev - A small team that loves shipping calm software. Discover our colorful, minimal Android applications.">
+    <link rel="canonical" href="https://shankarbros.dev/">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Shankarbros.dev",
+      "url": "https://shankarbros.dev",
+      "logo": "https://shankarbros.dev/logo.png",
+      "description": "Independent Android Studio building calm software.",
+      "sameAs": []
+    }
+    </script>
+
+</head>
+<body>
+
+    <nav id="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">SB</div>
+                Shankarbros.dev
+            </a>
+            <div class="nav-links">
+                <a href="apps.html">Apps</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+                <a href="#" class="btn btn-dark">Browse apps →</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        
+
+
+
+        <section id="apps" class="container" style="padding-top: 8rem;">
+            <div class="section-header">
+                <span class="badge">OUR APPS</span>
+                <h2>All available on Google Play</h2>
+            </div>
+
+            <div class="filters">
+                <button class="filter-btn active">All</button>
+                <button class="filter-btn">Tools & Utilities</button>
+                <button class="filter-btn">Spiritual</button>
+                <button class="filter-btn">Lifestyle</button>
+            </div>
+
+            <div class="app-grid">
+                <!-- Vastu Compass -->
+                <a href="vastu-compass.html" class="app-card">
+                    <span class="app-status status-available">Available</span>
+                    <div style="display: flex; gap: 1rem; margin-bottom: 1.5rem;">
+<div class="app-icon" style="background: var(--pastel-orange); width: 56px; height: 56px; border-radius: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ea580c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg></div>
+<img src="https://play-lh.googleusercontent.com/dWTNDWSfl1n8khUFCdBmZ6s2hRMst7D8nDup3SsY3JKi-t_i4UEb_YVJdYmz0jrU-6e4VgpCwOrNFSMqO8iE6ZA=w112" class="app-icon" alt="Vastu Compass: Home & Office Icon" style="width: 56px; height: 56px; border-radius: 16px; object-fit: cover; box-shadow: 0 4px 10px -2px rgba(0,0,0,0.1); background: white; margin-bottom: 0;">
+</div>
+                    <div class="app-category">Lifestyle</div>
+                    <h3>Vastu Compass</h3>
+                    <p>AI-powered directional guidance for your home & office.</p>
+                    <div class="app-footer">
+                        <span>⭐ New · 100+</span>
+                        <span class="view-link">View on Play →</span>
+                    </div>
+                </a>
+
+                <!-- Telugu Calendar -->
+                <a href="telugu-calendar.html" class="app-card">
+                    <span class="app-status status-available">Available</span>
+                    <div style="display: flex; gap: 1rem; margin-bottom: 1.5rem;">
+<div class="app-icon" style="background: var(--pastel-pink); width: 56px; height: 56px; border-radius: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ec4899" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></div>
+<img src="https://play-lh.googleusercontent.com/jn000JDW7RJRPwBhUbaDoRdnreDL15SutcOT8RtzTCO0nVfRDKmoYm-og8Q-8B1rreqlDTY9Ni7JiWo6Vgzz7QI=w112" class="app-icon" alt="Telugu Calendar 2026 - పంచాంగం Icon" style="width: 56px; height: 56px; border-radius: 16px; object-fit: cover; box-shadow: 0 4px 10px -2px rgba(0,0,0,0.1); background: white; margin-bottom: 0;">
+</div>
+                    <div class="app-category">Lifestyle</div>
+                    <h3>Telugu Calendar 2026</h3>
+                    <p>Panchangam, Rasi Phalalu, and festival reminders in one place.</p>
+                    <div class="app-footer">
+                        <span>⭐ 4.9 · 1,000+</span>
+                        <span class="view-link">View on Play →</span>
+                    </div>
+                </a>
+
+                <!-- Hanuman Chalisa -->
+                <a href="hanuman-chalisa.html" class="app-card">
+                    <span class="app-status status-available">Available</span>
+                    <div style="display: flex; gap: 1rem; margin-bottom: 1.5rem;">
+<div class="app-icon" style="background: var(--pastel-yellow); width: 56px; height: 56px; border-radius: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ca8a04" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg></div>
+<img src="https://play-lh.googleusercontent.com/ONiq3eTUYtW1Tzdw9CbCjeWLsJEpn7d8_DLNhRLtvW_mI2ia00We265tUswC0i8xzGg02GhP-dVt207GEVDz=w112" class="app-icon" alt="Hanuman Chalisa: Read & Listen Icon" style="width: 56px; height: 56px; border-radius: 16px; object-fit: cover; box-shadow: 0 4px 10px -2px rgba(0,0,0,0.1); background: white; margin-bottom: 0;">
+</div>
+                    <div class="app-category">Spiritual</div>
+                    <h3>Hanuman Chalisa</h3>
+                    <p>Read, listen, and track your daily chanting with a calm UI.</p>
+                    <div class="app-footer">
+                        <span>⭐ 5.0 · 500+</span>
+                        <span class="view-link">View on Play →</span>
+                    </div>
+                </a>
+
+                <!-- Bubble Level -->
+                <a href="bubble-level.html" class="app-card">
+                    <span class="app-status status-available">Available</span>
+                    <div style="display: flex; gap: 1rem; margin-bottom: 1.5rem;">
+<div class="app-icon" style="background: var(--pastel-green); width: 56px; height: 56px; border-radius: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2" ry="2"></rect><circle cx="12" cy="12" r="2"></circle></svg></div>
+<img src="https://play-lh.googleusercontent.com/Yt5SnRvgJ7pKBFWeDDjio2WEhkPgiVVg_k8hwH4-NIwGAo5XuHyn_5GFxVi1pO_VKrWh2MUGbhTIRwMGktOTH8c=w112" class="app-icon" alt="Bubble Level: Pro Spirit Level Icon" style="width: 56px; height: 56px; border-radius: 16px; object-fit: cover; box-shadow: 0 4px 10px -2px rgba(0,0,0,0.1); background: white; margin-bottom: 0;">
+</div>
+                    <div class="app-category">Tools & Utilities</div>
+                    <h3>Bubble Level</h3>
+                    <p>Pro spirit level for construction and home improvement.</p>
+                    <div class="app-footer">
+                        <span>⭐ New · 10+</span>
+                        <span class="view-link">View on Play →</span>
+                    </div>
+                </a>
+
+                <!-- FTP Server -->
+                <a href="ftp-server.html" class="app-card">
+                    <span class="app-status status-available">Available</span>
+                    <div style="display: flex; gap: 1rem; margin-bottom: 1.5rem;">
+<div class="app-icon" style="background: var(--pastel-blue); width: 56px; height: 56px; border-radius: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg></div>
+<img src="https://play-lh.googleusercontent.com/F96h5HHGJ_9xDviJqX4nddFVsClO8nVb_MYGVZDmjX5mFKHA2MmJOOdSsgdzfhuSiZp1mTOuy5YINrJK2kLMAvs=w112" class="app-icon" alt="FTP Server: WiFi Icon" style="width: 56px; height: 56px; border-radius: 16px; object-fit: cover; box-shadow: 0 4px 10px -2px rgba(0,0,0,0.1); background: white; margin-bottom: 0;">
+</div>
+                    <div class="app-category">Tools & Utilities</div>
+                    <h3>FTP Server: WiFi</h3>
+                    <p>Turn your phone into a high-performance FTP server for PC.</p>
+                    <div class="app-footer">
+                        <span>⭐ New · 100+</span>
+                        <span class="view-link">View App →</span>
+                    </div>
+                </a>
+
+                <!-- FloatPrompt: Teleprompter -->
+                <a href="floatprompt.html" class="app-card">
+                    <span class="app-status status-available">Available</span>
+                    <div style="display: flex; gap: 1rem; margin-bottom: 1.5rem;">
+<div class="app-icon" style="background: var(--pastel-purple); width: 56px; height: 56px; border-radius: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#9333ea" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2V8l-6-6z"></path><path d="M14 3v5h5M16 13H8M16 17H8M10 9H8"></path></svg></div>
+<img src="https://play-lh.googleusercontent.com/l91zMelXrnSGMYpvFWeo0ITtMQzufiHyMXgUww8Z1LysHBAGYoI6ceA90C7OaQqaX_ym1hbphBayrM-DInVL=w112" class="app-icon" alt="FloatPrompt: Teleprompter Icon" style="width: 56px; height: 56px; border-radius: 16px; object-fit: cover; box-shadow: 0 4px 10px -2px rgba(0,0,0,0.1); background: white; margin-bottom: 0;">
+</div>
+                    <div class="app-category">Tools & Utilities</div>
+                    <h3>FloatPrompt: Teleprompter</h3>
+                    <p>A floating teleprompter for smooth video recording and live streams.</p>
+                    <div class="app-footer">
+                        <span>⭐ New · 0+</span>
+                        <span class="view-link">View on Play →</span>
+                    </div>
+                </a>
+
+                <!-- Telugu Toolkit -->
+                <a href="telugu-toolkit.html" class="app-card">
+                    <span class="app-status status-available">Available</span>
+                    <div style="display: flex; gap: 1rem; margin-bottom: 1.5rem;">
+<div class="app-icon" style="background: var(--pastel-orange); width: 56px; height: 56px; border-radius: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ea580c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg></div>
+<img src="https://play-lh.googleusercontent.com/FxuujwhU7VO8zFKvFz5XCFT3nD8rM4aShO8DbRnrmSZ_TRER8QZQeRozg3IGvy0cgdtIBH7WtYWLWlnEnMv_zN8=w112" class="app-icon" alt="Telugu Toolkit: All Utility Icon" style="width: 56px; height: 56px; border-radius: 16px; object-fit: cover; box-shadow: 0 4px 10px -2px rgba(0,0,0,0.1); background: white; margin-bottom: 0;">
+</div>
+                    <div class="app-category">Tools & Utilities</div>
+                    <h3>Telugu Toolkit: All Utility</h3>
+                    <p>An all-in-one utility toolkit built specifically for Telugu users.</p>
+                    <div class="app-footer">
+                        <span>⭐ 5.0 · 10+</span>
+                        <span class="view-link">View on Play →</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Reviews Marquee -->
+        
+
+        <!-- About Section on Home -->
+        
+
+    </main>
+
+    <footer>
+        <div class="container" style="display: flex; flex-direction: column; align-items: center; gap: 1.5rem; padding-top: 3rem; padding-bottom: 3rem;">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">SB</div>
+                Shankarbros.dev
+            </a>
+            <!-- Social Media Icons -->
+            <div style="display: flex; gap: 1.25rem; align-items: center;">
+                <a href="https://facebook.com/shankarbro.dev" target="_blank" rel="noopener noreferrer" title="Facebook" style="color: var(--text-secondary); transition: color 0.2s;" onmouseover="this.style.color='#1877F2'" onmouseout="this.style.color=''">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                </a>
+                <a href="https://instagram.com/shankarbros.dev" target="_blank" rel="noopener noreferrer" title="Instagram" style="color: var(--text-secondary); transition: color 0.2s;" onmouseover="this.style.color='#E1306C'" onmouseout="this.style.color=''">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                </a>
+                <a href="https://x.com/shankarbros_dev" target="_blank" rel="noopener noreferrer" title="X (Twitter)" style="color: var(--text-secondary); transition: color 0.2s;" onmouseover="this.style.color='#000000'" onmouseout="this.style.color=''">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                </a>
+                <a href="https://youtube.com/@shankarbros.developers" target="_blank" rel="noopener noreferrer" title="YouTube" style="color: var(--text-secondary); transition: color 0.2s;" onmouseover="this.style.color='#FF0000'" onmouseout="this.style.color=''">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/></svg>
+                </a>
+                <a href="https://reddit.com/r/shankarbros" target="_blank" rel="noopener noreferrer" title="Reddit" style="color: var(--text-secondary); transition: color 0.2s;" onmouseover="this.style.color='#FF4500'" onmouseout="this.style.color=''">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/><path d="M20 12a2 2 0 0 0-3.37-1.44 9.85 9.85 0 0 0-5.13-1.63l.87-4.1 2.83.6a1.5 1.5 0 1 0 1.55-1.47 1.5 1.5 0 0 0-1.35.85l-3.16-.67a.25.25 0 0 0-.29.19l-1 4.57a9.88 9.88 0 0 0-5.18 1.64A2 2 0 1 0 4 13a3.56 3.56 0 0 0 0 .5c0 2.55 3.58 4.62 8 4.62s8-2.07 8-4.62a3.56 3.56 0 0 0 0-.5A2 2 0 0 0 20 12zm-12.5 1a1 1 0 1 1 1 1 1 1 0 0 1-1-1zm5.5 2.81a3.34 3.34 0 0 1-2-.52.25.25 0 0 1 .3-.4 2.85 2.85 0 0 0 1.7.42 2.85 2.85 0 0 0 1.7-.42.25.25 0 1 1 .3.4 3.34 3.34 0 0 1-2 .52zm.5-1.81a1 1 0 1 1 1-1 1 1 0 0 1-1 1z" fill="white"/></svg>
+                </a>
+                <a href="https://linkedin.com/company/shankarbros" target="_blank" rel="noopener noreferrer" title="LinkedIn" style="color: var(--text-secondary); transition: color 0.2s;" onmouseover="this.style.color='#0A66C2'" onmouseout="this.style.color=''">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                </a>
+            </div>
+            <div style="display: flex; gap: 1.5rem; font-size: 0.9rem;">
+                <a href="privacy.html" style="color: var(--text-secondary); text-decoration: none;">Privacy Policy</a>
+                <a href="terms.html" style="color: var(--text-secondary); text-decoration: none;">Terms &amp; Conditions</a>
+            </div>
+            <p class="copyright">© 2026 Shankarbros.dev · Built with care for Android.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', function() {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // App Filtering Logic
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const appCards = document.querySelectorAll('.app-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const filterValue = btn.textContent.trim();
+
+                appCards.forEach(card => {
+                    const category = card.querySelector('.app-category').textContent.trim();
+                    if (filterValue === 'All' || category === filterValue) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Render Reviews Marquee
+        const reviews = [
+  {
+    "appId": "com.shankarbros.ftpserver",
+    "userName": "Tanmay Sahu",
+    "userImage": "https://play-lh.googleusercontent.com/a-/ALV-UjVNSdATG8SYUsL6dV117gXW0kwgq5HR9wwK0f4zFDovG6mykMKf",
+    "score": 5,
+    "text": "woow software, I don't need to buy cables now.. good job bro.",
+    "date": "2026-02-03T08:48:11.100Z"
+  },
+  {
+    "appId": "com.shankarbros.telugutoolkit",
+    "userName": "Angani Ravishankar",
+    "userImage": "https://play-lh.googleusercontent.com/a/ACg8ocIzIC3FxC-YeBWqcPYipb5ymF_1shXlV7kXgqnBbJJoKx_j0Q=mo",
+    "score": 5,
+    "text": "It's good to have all the essentials in a basket. keep it up Uma.",
+    "date": "2026-04-05T04:13:32.188Z"
+  },
+  {
+    "appId": "com.shankarbros.telugu2026calendarandrasiphalalu",
+    "userName": "Lokesh Eswar",
+    "userImage": "https://play-lh.googleusercontent.com/a-/ALV-UjU0gBm3H6XQH4b1V8P8ubVS4SuExDdJNo53kXsZzRMMvVQSsnA",
+    "score": 5,
+    "text": "This Telugu calendar app is very useful for daily needs. It provides accurate Panchangam details... The interface is simple and user-friendly. A great app for following Telugu traditions and festivals.",
+    "date": "2026-01-25T11:06:50.368Z"
+  },
+  {
+    "appId": "com.shankarbros.hanumanchalisa",
+    "userName": "VENKATESH YELISETTI",
+    "userImage": "https://play-lh.googleusercontent.com/a/ACg8ocLYS_1XCL-qfmT_D-HlhJOJPzktSXq_Jx2MGaCP80KjuEzMBTew=mo",
+    "score": 5,
+    "text": "Great app. Devotional, reliable, and easy access. Definitely worth using. Jai shree Ram 🕉️🛐",
+    "date": "2025-12-07T13:59:15.116Z"
+  },
+  {
+    "appId": "com.shankarbros.hanumanchalisa",
+    "userName": "Jagan Reddy",
+    "userImage": "https://play-lh.googleusercontent.com/a/ACg8ocL81fmRRIjPWmFFI3-jwa6cKIYi0zSfceDupLd9OSK3BXblcg=mo",
+    "score": 5,
+    "text": "It is easy to use the app and best app for read and learn Hanuman chalisa. the Audio was clear.",
+    "date": "2025-12-10T12:50:54.518Z"
+  },
+  {
+    "appId": "com.shankarbros.telugu2026calendarandrasiphalalu",
+    "userName": "M.SHIVA SANKAR REDDY",
+    "userImage": "https://play-lh.googleusercontent.com/a-/ALV-UjXBjScaNEdXF7Ii274g2czlUrR_jkfw8b8DvuCxnuncYnblDlZI",
+    "score": 5,
+    "text": "Very Informative app, I truly recommended.",
+    "date": "2025-12-30T09:01:10.374Z"
+  },
+  {
+    "appId": "com.shankarbros.vastucompass",
+    "userName": "Angani Ravishankar",
+    "userImage": "https://play-lh.googleusercontent.com/a/ACg8ocIzIC3FxC-YeBWqcPYipb5ymF_1shXlV7kXgqnBbJJoKx_j0Q=mo",
+    "score": 5,
+    "text": "it's a quiet helpful tool for consultants. I love it.",
+    "date": "2026-04-28T10:54:29.825Z"
+  },
+  {
+    "appId": "com.shankarbros.bubblelevel",
+    "userName": "Lokesh Eswar",
+    "userImage": "https://play-lh.googleusercontent.com/a-/ALV-UjU0gBm3H6XQH4b1V8P8ubVS4SuExDdJNo53kXsZzRMMvVQSsnA",
+    "score": 5,
+    "text": "Excellent bubble level tool with accurate results and a clean design. It responds quickly and is easy to calibrate. Very helpful for carpentry, home improvement, and daily tasks. Highly recommended for anyone needing a digital level on the go.",
+    "date": "2026-01-25T10:58:36.404Z"
+  },
+  {
+    "appId": "com.shankarbros.telugu2026calendarandrasiphalalu",
+    "userName": "Panapana Ranjith Reddy",
+    "userImage": "https://play-lh.googleusercontent.com/a/ACg8ocJwzu-djhMqLS1uNAYTCzIMVisY4hnNbxNz-8dEmgyL-LDilIo=mo",
+    "score": 5,
+    "text": "Perfect app for elders and youngsters alike. All Telugu festivals, holidays, and panchangam details are available in one place. Very informative and easy to navigate.",
+    "date": "2025-12-30T16:46:39.386Z"
+  },
+  {
+    "appId": "com.shankarbros.telugu2026calendarandrasiphalalu",
+    "userName": "MASUPATRI JAI SHANKAR",
+    "userImage": "https://play-lh.googleusercontent.com/a/ACg8ocJMc4AKABjHZIXKF6JjKyzKdJvSTzHDEjYy81uc4yHCO-mGLg=mo",
+    "score": 5,
+    "text": "I really like this app. It gives a new feeling when I use it. ☺️",
+    "date": "2025-12-31T14:51:10.210Z"
+  },
+  {
+    "appId": "com.shankarbros.telugutoolkit",
+    "userName": "Kiran “Kiran” Kumar",
+    "userImage": "https://play-lh.googleusercontent.com/a/ACg8ocLOgatxWm2190K7tzD6seLTOiDsazrXA1V31RsTvE6JVO5mJg=mo",
+    "score": 5,
+    "text": "very useful utilities has been added will be useful for everyone thank you for making this bro",
+    "date": "2026-04-05T09:10:35.624Z"
+  },
+  {
+    "appId": "com.shankarbros.hanumanchalisa",
+    "userName": "Naveen Reddy",
+    "userImage": "https://play-lh.googleusercontent.com/a-/ALV-UjV1EklxR_nrSnsjqnpWF13G7AqHMlvp9FlxyTo5CBM9439W9Ken",
+    "score": 5,
+    "text": "Excellent , I have never seen before this like app . Because so many languages are there in this app and lyrics and paly track . this is the best app for hanuman chalisa.",
+    "date": "2025-11-29T11:21:30.330Z"
+  },
+  {
+    "appId": "com.shankarbros.telugu2026calendarandrasiphalalu",
+    "userName": "Parvathi Dukka",
+    "userImage": "https://play-lh.googleusercontent.com/a/ACg8ocKZKVP4xoMk4-MVGHbg2rAknmfhxPsn3SOqavpdcnQjFvp6jbI=mo",
+    "score": 5,
+    "text": "This is very useful app.. In this we see very clearly tidhi, nakshatra and more &more about sunrises times and subsets also.... So, try this app for easy way to read panchangam...",
+    "date": "2025-12-30T16:26:23.765Z"
+  }
+];
+
+        const track = document.getElementById('marquee-track');
+        if (track && reviews.length > 0) {
+            const createCard = (review) => {
+                const dateStr = review.date ? new Date(review.date).toLocaleDateString('en-US', {month: 'short', year: 'numeric'}) : '';
+                return `
+                    <div class="review-card">
+                        <div class="review-header">
+                            <img src="${review.userImage || 'https://via.placeholder.com/40'}" alt="${review.userName}" class="review-avatar">
+                            <div>
+                                <div class="review-author">${review.userName}</div>
+                                <div class="review-stars">★★★★★</div>
+                            </div>
+                        </div>
+                        <div class="review-text">"${review.text}"</div>
+                        <div class="review-date">${dateStr}</div>
+                    </div>
+                `;
+            };
+
+            // Generate HTML for all reviews
+            const reviewsHTML = reviews.map(createCard).join('');
+            
+            // Duplicate the content to make the infinite scroll seamless
+            track.innerHTML = reviewsHTML + reviewsHTML + reviewsHTML;
+        }
+    </script>
+</body>
+</html>

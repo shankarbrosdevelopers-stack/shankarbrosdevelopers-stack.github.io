@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bubble Level: Pro Spirit Level</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* App Specific Styles */
+        .app-hero {
+            padding: 10rem 0 6rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .app-hero-split {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .app-hero-content .badge {
+            background: rgba(255, 255, 255, 0.8);
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .app-hero-content h1 {
+            font-size: 5rem;
+            line-height: 1;
+            margin-bottom: 1.5rem;
+        }
+
+        .app-hero-content h1 span {
+            color: var(--pastel-pink);
+        }
+
+        .app-hero-content p {
+            font-size: 1.1rem;
+            max-width: 500px;
+            margin-bottom: 2.5rem;
+        }
+
+        .app-hero-btns {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .app-mockup {
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+
+        .app-mockup img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 24px;
+            /* shadow-xl already defined, but let's make it bigger for the phone */
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+
+        .social-proof {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        .avatars {
+            display: flex;
+            margin-right: 0.5rem;
+        }
+
+        .avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            border: 2px solid white;
+            margin-left: -12px;
+            background: #e5e7eb;
+        }
+
+        .avatar:first-child { margin-left: 0; }
+
+        /* Features Section */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card-app {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 24px;
+            border: 1px solid rgba(0,0,0,0.03);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card-app:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon-box {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-card-app h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .feature-card-app p {
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* Steps Section */
+        .steps-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .step-card {
+            padding: 3rem 2rem;
+            border-radius: 32px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .step-number {
+            font-family: var(--font-serif);
+            font-size: 3rem;
+            opacity: 0.2;
+            margin-bottom: 1rem;
+        }
+
+        .step-card h3 {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .step-card p {
+            font-size: 0.95rem;
+            color: var(--text-primary);
+            opacity: 0.7;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .app-hero-split { grid-template-columns: 1fr; text-align: center; }
+            .app-hero-content p { margin-left: auto; margin-right: auto; }
+            .app-hero-btns { justify-content: center; }
+            .social-proof { justify-content: center; }
+            .steps-container { grid-template-columns: 1fr; }
+            .app-hero-content h1 { font-size: 3.5rem; }
+        }
+    </style>
+
+    <meta name="description" content="Shankarbros.dev - Bubble Level: Pro Spirit Level. We build calm, minimal, and privacy-focused Android applications.">
+    <meta property="og:title" content="Bubble Level: Pro Spirit Level">
+    <meta property="og:description" content="Shankarbros.dev - Bubble Level: Pro Spirit Level. We build calm, minimal, and privacy-focused Android applications.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://shankarbros.dev/bubble-level.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Bubble Level: Pro Spirit Level">
+    <meta name="twitter:description" content="Shankarbros.dev - Bubble Level: Pro Spirit Level. We build calm, minimal, and privacy-focused Android applications.">
+    <link rel="canonical" href="https://shankarbros.dev/bubble-level.html">
+
+</head>
+<body>
+
+    <nav id="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">SB</div>
+                Shankarbros.dev <span style="color: var(--text-secondary); margin: 0 0.1rem; font-weight: 300;">/</span> Bubble Level
+            </a>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#how-it-works">How it works</a>
+                <a href="https://play.google.com/store/apps/details?id=com.shankarbros.bubblelevel&hl=en&gl=us" class="btn btn-dark" target="_blank">Get the app</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="app-hero">
+            <div class="bg-gradient-mesh" style="opacity: 0.3;"></div>
+            <div class="container">
+                <div class="app-hero-split">
+                    <div class="app-hero-content">
+                        <span class="badge" style="color: var(--accent-green);">📐 Bubble Level · Tools</span>
+                        <h1>High precision <span>leveling.</span></h1>
+                        <p>Bubble Level: Precision bubble or Spirit level for DIY &amp; work.</p>
+                        <div class="app-hero-btns">
+                            <a href="https://play.google.com/store/apps/details?id=com.shankarbros.bubblelevel&hl=en&gl=us" class="btn btn-dark" target="_blank">Get it on Google Play</a>
+                            <a href="#how-it-works" class="btn btn-outline">See how it works</a>
+                        </div>
+                        <div class="social-proof">
+                            <div class="avatars">
+                                <div class="avatar" style="background: var(--pastel-pink);"></div>
+                                <div class="avatar" style="background: var(--pastel-blue);"></div>
+                                <div class="avatar" style="background: var(--pastel-purple);"></div>
+                                <div class="avatar" style="background: var(--pastel-green);"></div>
+                            </div>
+                            <span>10+ downloads on Google Play · ⭐ New</span>
+                        </div>
+                    </div>
+                    <div class="app-mockup">
+                        <img src="https://play-lh.googleusercontent.com/n9B_oSel5XzfvQZsAVQXFEho9jjjJlFgURyxPizSWhxS3ats5MAbS-1SHEOFi1SuT5HYq4tAyWPOA3KCNHWsew" alt="Bloom App Mockup">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+        <section class="container" style="margin-top: 4rem; margin-bottom: 4rem;">
+            <div class="section-header" style="margin-bottom: 3rem; text-align: center;">
+                <span class="badge" style="color: var(--accent-green); background: var(--accent-green)15;">GALLERY</span>
+                <h2 style="font-size: 2.5rem; margin-top: 1rem;">Inside the app</h2>
+            </div>
+            
+            <style>
+                .screenshots-grid {
+                    display: grid;
+                    grid-template-columns: repeat(4, 1fr);
+                    gap: 1.5rem;
+                    align-items: start;
+                }
+                @media (max-width: 900px) {
+                    .screenshots-grid { grid-template-columns: repeat(2, 1fr); }
+                }
+                @media (max-width: 500px) {
+                    .screenshots-grid { grid-template-columns: 1fr; }
+                }
+            </style>
+            
+            <div class="screenshots-grid">
+                <img src="https://play-lh.googleusercontent.com/q7fQvIAFAuTwggyJkSVoGEWzcLJz4usUgXfkDXLWKRKD21-I7ikCZWPbvi-V0at64C7LFMoWaH90BfV8woHotw=w800" alt="Screenshot 1" style="width: 100%; height: auto; border-radius: 20px; box-shadow: 0 15px 35px -10px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05); object-fit: contain; background: var(--bg-secondary); transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)';" onmouseout="this.style.transform='none';">
+                <img src="https://play-lh.googleusercontent.com/Xyn6l-kXES-aS5hERLlKoTgRMjczZOyqtf9qCrMZd-AePJUlWOdPCD_-v-H4_oVJp-GT5fSP0KK6zSW4fTQR=w800" alt="Screenshot 2" style="width: 100%; height: auto; border-radius: 20px; box-shadow: 0 15px 35px -10px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05); object-fit: contain; background: var(--bg-secondary); transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)';" onmouseout="this.style.transform='none';">
+                <img src="https://play-lh.googleusercontent.com/Y2I75TSIi48L_ucfAlkl3iz8X1G-rgFJcl1vFRKPSxq1xjCovN82eyNlq9kaYZzD709i-AMhPFc4ZR0vPNRl=w800" alt="Screenshot 3" style="width: 100%; height: auto; border-radius: 20px; box-shadow: 0 15px 35px -10px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05); object-fit: contain; background: var(--bg-secondary); transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)';" onmouseout="this.style.transform='none';">
+                <img src="https://play-lh.googleusercontent.com/24LMTlRMBxenRzrJGiEW0tqcbQAIKtLbI0bulotYhwiVZa_Y8XmmK0mh1yyRod68PdX65sZz_CfT-aG2l7rJ=w800" alt="Screenshot 4" style="width: 100%; height: auto; border-radius: 20px; box-shadow: 0 15px 35px -10px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05); object-fit: contain; background: var(--bg-secondary); transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)';" onmouseout="this.style.transform='none';">
+
+            </div>
+        </section>
+
+        <section id="features" class="container">
+            <div class="section-header">
+                <span class="badge" style="color: var(--accent-green);">📐 Bubble Level · Tools</span>
+                <h2>Everything you need, nothing you don't.</h2>
+            </div>
+
+            <div class="features-grid">
+
+                <div class="feature-card-app">
+                    <div class="feature-icon-box" style="background: var(--pastel-green); font-size: 1.5rem; display: flex; align-items: center; justify-content: center;">
+                        📐
+                    </div>
+                    <h3>High Accuracy</h3>
+                    <p>Precise measurement to the degree.</p>
+                </div>
+                <div class="feature-card-app">
+                    <div class="feature-icon-box" style="background: var(--pastel-blue); font-size: 1.5rem; display: flex; align-items: center; justify-content: center;">
+                        🔒
+                    </div>
+                    <h3>Lock Screen</h3>
+                    <p>Lock readings for easy viewing.</p>
+                </div>
+                <div class="feature-card-app">
+                    <div class="feature-icon-box" style="background: var(--pastel-yellow); font-size: 1.5rem; display: flex; align-items: center; justify-content: center;">
+                        🔔
+                    </div>
+                    <h3>Sound Alerts</h3>
+                    <p>Beep when perfectly level.</p>
+                </div>
+                <div class="feature-card-app">
+                    <div class="feature-icon-box" style="background: var(--pastel-purple); font-size: 1.5rem; display: flex; align-items: center; justify-content: center;">
+                        📏
+                    </div>
+                    <h3>Ruler Tool</h3>
+                    <p>Built-in straight edge ruler.</p>
+                </div>
+                <div class="feature-card-app">
+                    <div class="feature-icon-box" style="background: var(--pastel-pink); font-size: 1.5rem; display: flex; align-items: center; justify-content: center;">
+                         Калибр
+                    </div>
+                    <h3>Calibration</h3>
+                    <p>Calibrate for perfect accuracy.</p>
+                </div>
+                <div class="feature-card-app">
+                    <div class="feature-icon-box" style="background: var(--pastel-orange); font-size: 1.5rem; display: flex; align-items: center; justify-content: center;">
+                        🌙
+                    </div>
+                    <h3>Night Mode</h3>
+                    <p>Easy to read in dark environments.</p>
+                </div>
+            </div>
+</section>
+
+        <section id="how-it-works" class="container">
+            <div class="section-header">
+                <h2>Three steps to level 📐</h2>
+            </div>
+            
+            <div class="steps-container">
+
+                <div class="step-card" style="background: var(--pastel-green);">
+                    <div class="step-number">01</div>
+                    <h3>Place</h3>
+                    <p>Place your phone on the surface.</p>
+                </div>
+                <div class="step-card" style="background: var(--pastel-blue);">
+                    <div class="step-number">02</div>
+                    <h3>Adjust</h3>
+                    <p>Move until the bubble centers.</p>
+                </div>
+                <div class="step-card" style="background: var(--pastel-yellow);">
+                    <div class="step-number">03</div>
+                    <h3>Lock</h3>
+                    <p>Lock the screen to save the reading.</p>
+                </div>
+            </div>
+</section>
+
+        
+        <section class="container" style="margin-top: 6rem; margin-bottom: 6rem;">
+            <div style="background: white; padding: 4rem; border-radius: 40px; border: 1px solid rgba(0,0,0,0.05); box-shadow: 0 20px 40px -15px rgba(0,0,0,0.05); position: relative; overflow: hidden;">
+                <!-- Decorative background element -->
+                <div style="position: absolute; top: 0; right: 0; width: 300px; height: 300px; background: var(--accent-green); opacity: 0.05; filter: blur(60px); border-radius: 50%;"></div>
+                
+                <div class="section-header" style="text-align: left; margin-bottom: 3rem; position: relative; z-index: 1;">
+                    <span class="badge" style="color: var(--accent-green); background: var(--accent-green)15;">ABOUT THE APP</span>
+                    <h2 style="margin-top: 1rem; font-size: 2.5rem; letter-spacing: -0.02em;">Bubble Level: Pro Spirit Level</h2>
+                </div>
+                
+                <div class="app-description" style="line-height: 1.8; color: var(--text-secondary); font-size: 1.1rem; position: relative; z-index: 1; max-width: 800px;">
+                    <p style="margin-bottom: 1.5rem;">Turn your phone into a high-precision spirit level! Traditional bubble levels and plumb bobs are essential for accuracy, but they are rarely there when you need them. TrueLevel: Pro Bubble Tool gives you professional-grade levelling  right in your pocket.</p><p style="margin-bottom: 1.5rem;">Whether you are a professional contractor, a DIY enthusiast, or a photographer, TrueLevel provides the accuracy you need with a simple, intuitive interface.</p><p style="margin-bottom: 1.5rem;">🛠 Key Professional Features<br>Triple-Mode Levelling: Precision horizontal, vertical, and 360° surface levelling.</p><p style="margin-bottom: 1.5rem;">Sound Feedback: Get an audible reminder when you hit the perfect level—ideal for when the screen is out of sight.</p><p style="margin-bottom: 1.5rem;">Measurement Lock: Use the Screen Lock feature to keep your readings consistent for repetitive tasks.</p><p style="margin-bottom: 1.5rem;">One-Tap Calibration: Instantly reset and calibrate for pinpoint accuracy tailored to your specific device sensors.</p><p style="margin-bottom: 1.5rem;">Work Anywhere: Works woodworking level, or slope finder.</p><p style="margin-bottom: 1.5rem;">🏠 Real-World Applications<br>Home &amp; Decor: Hang photo frames, shelves, and mirrors perfectly straight.</p><p style="margin-bottom: 1.5rem;">Construction &amp; Carpentry: Calibrate tables, assemble cabinets, and build DIY projects with confidence.</p><p style="margin-bottom: 1.5rem;">Photography &amp; Painting: Align your tripod for the perfect horizon or ensure your canvas is perfectly square.</p><p style="margin-bottom: 1.5rem;">Office &amp; Indoors: Flatten desks, set up monitors, and organize your workspace with professional precision.</p><p style="margin-bottom: 1.5rem;">💎 Go Pro for Life<br>Experience the full power of TrueLevel without interruptions. We offer a Lifetime Ad-Free option—a one-time purchase that gives you a clean, professional workspace forever. No subscriptions, just a reliable tool for life.</p><p style="margin-bottom: 1.5rem;">🚀 How to Use<br>Horizontal Level: Place your phone flat on any surface to find the centre point.</p><p style="margin-bottom: 1.5rem;">Calibrate: Always use the one-key calibration on a known flat surface for the most accurate results.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="container">
+            <div class="cta-banner">
+                <h2>Ready to bloom?</h2>
+                <p>Free on Google Play. No ads, no judgement, just gentle progress.</p>
+                <div style="display: flex; gap: 1rem; justify-content: center;">
+                    <a href="https://play.google.com/store/apps/details?id=com.shankarbros.bubblelevel&hl=en&gl=us" class="btn btn-dark" target="_blank">Get it on Google Play</a>
+                    <a href="#" class="btn btn-outline" style="background: white;">Join the newsletter</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">SB</div>
+                Shankarbros.dev <span style="color: var(--text-secondary); margin: 0 0.1rem; font-weight: 300;">/</span> Bubble Level
+            </a>
+            <p class="copyright">© 2026 Shankarbros.dev. Made with love for happier mornings.</p>
+        </div>
+    </footer>
+
+    <script>
+        window.addEventListener('scroll', function() {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>

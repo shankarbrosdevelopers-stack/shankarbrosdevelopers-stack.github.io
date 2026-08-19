@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telugu Toolkit: All Utility</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* App Specific Styles */
+        .app-hero {
+            padding: 10rem 0 6rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .app-hero-split {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .app-hero-content .badge {
+            background: rgba(255, 255, 255, 0.8);
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .app-hero-content h1 {
+            font-size: 5rem;
+            line-height: 1;
+            margin-bottom: 1.5rem;
+        }
+
+        .app-hero-content h1 span {
+            color: var(--pastel-pink);
+        }
+
+        .app-hero-content p {
+            font-size: 1.1rem;
+            max-width: 500px;
+            margin-bottom: 2.5rem;
+        }
+
+        .app-hero-btns {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .app-mockup {
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+
+        .app-mockup img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 24px;
+            /* shadow-xl already defined, but let's make it bigger for the phone */
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+
+        .social-proof {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        .avatars {
+            display: flex;
+            margin-right: 0.5rem;
+        }
+
+        .avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            border: 2px solid white;
+            margin-left: -12px;
+            background: #e5e7eb;
+        }
+
+        .avatar:first-child { margin-left: 0; }
+
+        /* Features Section */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card-app {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 24px;
+            border: 1px solid rgba(0,0,0,0.03);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card-app:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon-box {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-card-app h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .feature-card-app p {
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* Steps Section */
+        .steps-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .step-card {
+            padding: 3rem 2rem;
+            border-radius: 32px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .step-number {
+            font-family: var(--font-serif);
+            font-size: 3rem;
+            opacity: 0.2;
+            margin-bottom: 1rem;
+        }
+
+        .step-card h3 {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .step-card p {
+            font-size: 0.95rem;
+            color: var(--text-primary);
+            opacity: 0.7;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .app-hero-split { grid-template-columns: 1fr; text-align: center; }
+            .app-hero-content p { margin-left: auto; margin-right: auto; }
+            .app-hero-btns { justify-content: center; }
+            .social-proof { justify-content: center; }
+            .steps-container { grid-template-columns: 1fr; }
+            .app-hero-content h1 { font-size: 3.5rem; }
+        }
+    </style>
+
+    <meta name="description" content="Shankarbros.dev - Telugu Toolkit: All Utility. We build calm, minimal, and privacy-focused Android applications.">
+    <meta property="og:title" content="Telugu Toolkit: All Utility">
+    <meta property="og:description" content="Shankarbros.dev - Telugu Toolkit: All Utility. We build calm, minimal, and privacy-focused Android applications.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://shankarbros.dev/telugu-toolkit.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Telugu Toolkit: All Utility">
+    <meta name="twitter:description" content="Shankarbros.dev - Telugu Toolkit: All Utility. We build calm, minimal, and privacy-focused Android applications.">
+    <link rel="canonical" href="https://shankarbros.dev/telugu-toolkit.html">
+
+</head>
+<body>
+
+    <nav id="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">SB</div>
+                Shankarbros.dev <span style="color: var(--text-secondary); margin: 0 0.1rem; font-weight: 300;">/</span> Telugu Toolkit
+            </a>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#how-it-works">How it works</a>
+                <a href="https://play.google.com/store/apps/details?id=com.shankarbros.telugutoolkit&hl=en&gl=us" class="btn btn-dark" target="_blank">Get the app</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="app-hero">
+            <div class="bg-gradient-mesh" style="opacity: 0.3;"></div>
+            <div class="container">
+                <div class="app-hero-split">
+                    <div class="app-hero-content">
+                        <span class="badge" style="color: var(--accent-orange);">🛠️ Telugu Toolkit · Tools</span>
+                        <h1>All-in-one <span>utility.</span></h1>
+                        <p>&quot;All-in-One Telugu Toolkit: 37 Utility Tools, Gold, BMI, GST &amp; Land Calculators.</p>
+                        <div class="app-hero-btns">
+                            <a href="https://play.google.com/store/apps/details?id=com.shankarbros.telugutoolkit&hl=en&gl=us" class="btn btn-dark" target="_blank">Get it on Google Play</a>
+                            <a href="#how-it-works" class="btn btn-outline">See how it works</a>
+                        </div>
+                        <div class="social-proof">
+                            <div class="avatars">
+                                <div class="avatar" style="background: var(--pastel-pink);"></div>
+                                <div class="avatar" style="background: var(--pastel-blue);"></div>
+                                <div class="avatar" style="background: var(--pastel-purple);"></div>
+                                <div class="avatar" style="background: var(--pastel-green);"></div>
+                            </div>
+                            <span>10+ downloads on Google Play · ⭐ New</span>
+                        </div>
+                    </div>
+                    <div class="app-mockup">
+                        <img src="https://play-lh.googleusercontent.com/oSDn7Em6cBfvq05WclY7w93le2nO4bqj4NZTjosHI-aX5R5L1VbW7u3nEw0fnD2ZxYgBRwZl69gReqA7vO3YEg" alt="Bloom App Mockup">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+        <section class="container" style="margin-top: 4rem; margin-bottom: 4rem;">
+            <div class="section-header" style="margin-bottom: 3rem; text-align: center;">
+                <span class="badge" style="color: var(--accent-orange); background: var(--accent-orange)15;">GALLERY</span>
+                <h2 style="font-size: 2.5rem; margin-top: 1rem;">Inside the app</h2>
+            </div>
+            
+            <style>
+                .screenshots-grid {
+                    display: grid;
+                    grid-template-columns: repeat(4, 1fr);
+                    gap: 1.5rem;
+                    align-items: start;
+                }
+                @media (max-width: 900px) {
+                    .screenshots-grid { grid-template-columns: repeat(2, 1fr); }
+                }
+                @media (max-width: 500px) {
+                    .screenshots-grid { grid-template-columns: 1fr; }
+                }
+            </style>
+            
+            <div class="screenshots-grid">
+                <img src="https://play-lh.googleusercontent.com/Y_Cf4v3cINLiCI87coDcqWKZpgr4OzRUWjDBW8JFgfG9cFJYmNpwqrPh2QyM99b69aS3owp9pNy7TlbWZkWg=w800" alt="Screenshot 1" style="width: 100%; height: auto; border-radius: 20px; box-shadow: 0 15px 35px -10px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05); object-fit: contain; background: var(--bg-secondary); transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)';" onmouseout="this.style.transform='none';">
+                <img src="https://play-lh.googleusercontent.com/60ziCbWtX9rNbVYV5VecpC4C4EhCDKVJUKQsO-JJtG1SzMupxwsehWD5Q744O85psdAkURFrSCpFUdAhd0fK=w800" alt="Screenshot 2" style="width: 100%; height: auto; border-radius: 20px; box-shadow: 0 15px 35px -10px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05); object-fit: contain; background: var(--bg-secondary); transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)';" onmouseout="this.style.transform='none';">
+                <img src="https://play-lh.googleusercontent.com/n_m-fwlWQ5y_4soo9K4g1GXXqiInLq70QGXxThf_-ZxXbTNYX0gwEvAV6a4gm_aaX-mQO5YaaW-skowx0I_ATA=w800" alt="Screenshot 3" style="width: 100%; height: auto; border-radius: 20px; box-shadow: 0 15px 35px -10px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05); object-fit: contain; background: var(--bg-secondary); transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)';" onmouseout="this.style.transform='none';">
+                <img src="https://play-lh.googleusercontent.com/yKy9SEAPhjR4N_eb7njnis16p7KU8kU4KuefTJQNlyj_QXu9DU3rv1b17NbnEaBWtjP6atc6fvWdE5c_mP-q=w800" alt="Screenshot 4" style="width: 100%; height: auto; border-radius: 20px; box-shadow: 0 15px 35px -10px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05); object-fit: contain; background: var(--bg-secondary); transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)';" onmouseout="this.style.transform='none';">
+
+            </div>
+        </section>
+
+        <section id="features" class="container">
+            <div class="section-header">
+                <span class="badge" style="color: var(--accent-orange);">🛠️ Telugu Toolkit · Tools</span>
+                <h2>Everything you need, nothing you don't.</h2>
+            </div>
+
+            <div class="features-grid">
+
+                <div class="feature-card-app">
+                    <div class="feature-icon-box" style="background: var(--pastel-orange); font-size: 1.5rem; display: flex; align-items: center; justify-content: center;">
+                        🛠️
+                    </div>
+                    <h3>Multiple Tools</h3>
+                    <p>Everything you need in one place.</p>
+                </div>
+                <div class="feature-card-app">
+                    <div class="feature-icon-box" style="background: var(--pastel-blue); font-size: 1.5rem; display: flex; align-items: center; justify-content: center;">
+                        💬
+                    </div>
+                    <h3>Telugu First</h3>
+                    <p>Fully localized interface.</p>
+                </div>
+                <div class="feature-card-app">
+                    <div class="feature-icon-box" style="background: var(--pastel-green); font-size: 1.5rem; display: flex; align-items: center; justify-content: center;">
+                        ⚡
+                    </div>
+                    <h3>Fast & Light</h3>
+                    <p>Takes up minimal storage space.</p>
+                </div>
+                <div class="feature-card-app">
+                    <div class="feature-icon-box" style="background: var(--pastel-purple); font-size: 1.5rem; display: flex; align-items: center; justify-content: center;">
+                        🔒
+                    </div>
+                    <h3>Secure</h3>
+                    <p>Your data stays on your device.</p>
+                </div>
+                <div class="feature-card-app">
+                    <div class="feature-icon-box" style="background: var(--pastel-pink); font-size: 1.5rem; display: flex; align-items: center; justify-content: center;">
+                        🛑
+                    </div>
+                    <h3>Minimum Ads</h3>
+                    <p>Designed to safeguard user focus.</p>
+                </div>
+                <div class="feature-card-app">
+                    <div class="feature-icon-box" style="background: var(--pastel-yellow); font-size: 1.5rem; display: flex; align-items: center; justify-content: center;">
+                        📱
+                    </div>
+                    <h3>Modern UI</h3>
+                    <p>Easy to navigate and use.</p>
+                </div>
+            </div>
+</section>
+
+        <section id="how-it-works" class="container">
+            <div class="section-header">
+                <h2>Three steps to simplify 🛠️</h2>
+            </div>
+            
+            <div class="steps-container">
+
+                <div class="step-card" style="background: var(--pastel-orange);">
+                    <div class="step-number">01</div>
+                    <h3>Open</h3>
+                    <p>Launch the toolkit.</p>
+                </div>
+                <div class="step-card" style="background: var(--pastel-blue);">
+                    <div class="step-number">02</div>
+                    <h3>Select</h3>
+                    <p>Choose the tool you need.</p>
+                </div>
+                <div class="step-card" style="background: var(--pastel-green);">
+                    <div class="step-number">03</div>
+                    <h3>Use</h3>
+                    <p>Enjoy a seamless experience.</p>
+                </div>
+            </div>
+</section>
+
+        
+        <section class="container" style="margin-top: 6rem; margin-bottom: 6rem;">
+            <div style="background: white; padding: 4rem; border-radius: 40px; border: 1px solid rgba(0,0,0,0.05); box-shadow: 0 20px 40px -15px rgba(0,0,0,0.05); position: relative; overflow: hidden;">
+                <!-- Decorative background element -->
+                <div style="position: absolute; top: 0; right: 0; width: 300px; height: 300px; background: var(--accent-orange); opacity: 0.05; filter: blur(60px); border-radius: 50%;"></div>
+                
+                <div class="section-header" style="text-align: left; margin-bottom: 3rem; position: relative; z-index: 1;">
+                    <span class="badge" style="color: var(--accent-orange); background: var(--accent-orange)15;">ABOUT THE APP</span>
+                    <h2 style="margin-top: 1rem; font-size: 2.5rem; letter-spacing: -0.02em;">Telugu Toolkit: All Utility</h2>
+                </div>
+                
+                <div class="app-description" style="line-height: 1.8; color: var(--text-secondary); font-size: 1.1rem; position: relative; z-index: 1; max-width: 800px;">
+                    <p style="margin-bottom: 1.5rem;"><strong style="color: var(--text-primary); font-size: 1.2rem; display: block; margin-top: 2rem; margin-bottom: 0.5rem; border-bottom: 2px solid var(--bg-secondary); padding-bottom: 0.5rem;">✨ Key Features &amp; Tools:</strong><br><strong style="color: var(--text-primary); font-size: 1.2rem; display: block; margin-top: 2rem; margin-bottom: 0.5rem; border-bottom: 2px solid var(--bg-secondary); padding-bottom: 0.5rem;">💰 1. Specialized Financial Calculators:</strong><br>🌾 Village Interest Calculator: Calculate monthly interest based on local village customs (e.g., ₹2 or ₹3 per ₹100). Supports both Simple and Compound interest.<br>✨ Gold &amp; Silver Price: Get real-time gold and silver rates with automatic GST and making charges calculation to know the final price before you buy.<br>📊 EMI Calculator: Plan your Home, Car, or Personal loans with a detailed monthly breakdown and amortization schedule.<br>🧾 GST Calculator: Instantly calculate GST (Inclusive or Exclusive) for billing and business needs.<br>📈 SIP &amp; Investment: Plan your future with our Systematic Investment Plan (SIP) and Percentage calculators.<br><strong style="color: var(--text-primary); font-size: 1.2rem; display: block; margin-top: 2rem; margin-bottom: 0.5rem; border-bottom: 2px solid var(--bg-secondary); padding-bottom: 0.5rem;">📐 2. Land &amp; Unit Converters:</strong><br>🗺️ Land Converter: Specialized for local measurements! Convert between Acres, Guntas, Cents, Square Yards (Gajalu), and Square Feet effortlessly.<br>🔄 All-in-One Converter: High-speed conversion for Length, Weight (Mass), Temperature, Area, Time, Data, and Volume.<br>🔢 Number System: Convert between Decimal, Binary, Hex, and Octal systems.<br><strong style="color: var(--text-primary); font-size: 1.2rem; display: block; margin-top: 2rem; margin-bottom: 0.5rem; border-bottom: 2px solid var(--bg-secondary); padding-bottom: 0.5rem;">🛠️ 3. Essential Daily Utilities:</strong><br>🧭 Vastu Compass: Align your home and workspace with a built-in Vastu-compliant digital compass showing all major directions (Eeshanyam, Agneyam, etc.).<br>🎂 Age Calculator: Calculate your exact age in years, months, and days, and see how many days are left for your next birthday.<br>⛽ Fuel &amp; Mileage: Calculate trip costs based on distance, fuel price, and your vehicle&#39;s mileage.<br>⚖️ BMI Calculator: Monitor your health with our BMI calculator, complete with health status and ideal weight tips.<br>🛒 Unit Price Finder: Compare two products to find out which one offers the best value for your money.<br><strong style="color: var(--text-primary); font-size: 1.2rem; display: block; margin-top: 2rem; margin-bottom: 0.5rem; border-bottom: 2px solid var(--bg-secondary); padding-bottom: 0.5rem;">🚨 4. Quick Links &amp; Emergency Services:</strong><br>🏛️ State Portals: Direct access to Dharani (TS), Meebhoomi (AP), and Electricity Bill payments (TGSPDCL/APEPDCL).<br>🚦 Traffic E-Challan: Quickly check traffic fines for Telangana and Andhra Pradesh.<br>🚑 Emergency Contact List: One-tap access to Police (100), Fire (101), Ambulance (108), Women Helpline (181), and more.<br>⭐ Why Choose Telugu Toolkit?<br>🌐 Fully Localized: Switch between Telugu and English with a single tap.<br>🎨 Beautiful &amp; Modern UI: A clean, professional design that is easy on the eyes and supports Dark Mode.<br>🔒 Privacy First: No unnecessary permissions. Your data and privacy are our top priority.<br>⚡ Frequently Used Tools: The app learns your habits and puts your most-used tools right on the dashboard for quick access.<br>📶 Completely Offline: Most calculators work 100% offline (except for real-time gold prices and external web portals).</p><p style="margin-bottom: 1.5rem;"><strong style="color: var(--text-primary); font-size: 1.2rem; display: block; margin-top: 2rem; margin-bottom: 0.5rem; border-bottom: 2px solid var(--bg-secondary); padding-bottom: 0.5rem;">⚠️ Important Disclaimers:</strong></p><p style="margin-bottom: 1.5rem;">Government Information: Telugu Toolkit is a private utility app and is not affiliated with, authorized, or endorsed by any government entity. All links to government portals (such as Dharani, Meebhoomi, or E-Challan) are provided for public convenience only. Data is sourced directly from official public websites.</p><p style="margin-bottom: 1.5rem;">Health &amp; Fitness: The BMI Calculator is for informational purposes only. It is not a medical device and must not be used for medical diagnosis, treatment, or as a substitute for professional medical advice. Please consult a healthcare professional for any health-related concerns.</p><p style="margin-bottom: 1.5rem;"> Financial Services: This app provides calculators only (Interest, EMI, GST). We do not provide, facilitate, or broker loans, banking services, or any other regulated financial products. All results are estimations based on user input.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="container">
+            <div class="cta-banner">
+                <h2>Ready to bloom?</h2>
+                <p>Free on Google Play. No ads, no judgement, just gentle progress.</p>
+                <div style="display: flex; gap: 1rem; justify-content: center;">
+                    <a href="https://play.google.com/store/apps/details?id=com.shankarbros.telugutoolkit&hl=en&gl=us" class="btn btn-dark" target="_blank">Get it on Google Play</a>
+                    <a href="#" class="btn btn-outline" style="background: white;">Join the newsletter</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">SB</div>
+                Shankarbros.dev <span style="color: var(--text-secondary); margin: 0 0.1rem; font-weight: 300;">/</span> Telugu Toolkit
+            </a>
+            <p class="copyright">© 2026 Shankarbros.dev. Made with love for happier mornings.</p>
+        </div>
+    </footer>
+
+    <script>
+        window.addEventListener('scroll', function() {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>

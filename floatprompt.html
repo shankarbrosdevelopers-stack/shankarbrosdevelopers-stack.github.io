@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FloatPrompt: Teleprompter</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* App Specific Styles */
+        .app-hero {
+            padding: 10rem 0 6rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .app-hero-split {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .app-hero-content .badge {
+            background: rgba(255, 255, 255, 0.8);
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .app-hero-content h1 {
+            font-size: 5rem;
+            line-height: 1;
+            margin-bottom: 1.5rem;
+        }
+
+        .app-hero-content h1 span {
+            color: var(--pastel-pink);
+        }
+
+        .app-hero-content p {
+            font-size: 1.1rem;
+            max-width: 500px;
+            margin-bottom: 2.5rem;
+        }
+
+        .app-hero-btns {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .app-mockup {
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+
+        .app-mockup img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 24px;
+            /* shadow-xl already defined, but let's make it bigger for the phone */
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+
+        .social-proof {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        .avatars {
+            display: flex;
+            margin-right: 0.5rem;
+        }
+
+        .avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            border: 2px solid white;
+            margin-left: -12px;
+            background: #e5e7eb;
+        }
+
+        .avatar:first-child { margin-left: 0; }
+
+        /* Features Section */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card-app {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 24px;
+            border: 1px solid rgba(0,0,0,0.03);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card-app:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon-box {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-card-app h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .feature-card-app p {
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* Steps Section */
+        .steps-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .step-card {
+            padding: 3rem 2rem;
+            border-radius: 32px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .step-number {
+            font-family: var(--font-serif);
+            font-size: 3rem;
+            opacity: 0.2;
+            margin-bottom: 1rem;
+        }
+
+        .step-card h3 {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .step-card p {
+            font-size: 0.95rem;
+            color: var(--text-primary);
+            opacity: 0.7;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .app-hero-split { grid-template-columns: 1fr; text-align: center; }
+            .app-hero-content p { margin-left: auto; margin-right: auto; }
+            .app-hero-btns { justify-content: center; }
+            .social-proof { justify-content: center; }
+            .steps-container { grid-template-columns: 1fr; }
+            .app-hero-content h1 { font-size: 3.5rem; }
+        }
+    </style>
+
+    <meta name="description" content="Shankarbros.dev - FloatPrompt: Teleprompter. We build calm, minimal, and privacy-focused Android applications.">
+    <meta property="og:title" content="FloatPrompt: Teleprompter">
+    <meta property="og:description" content="Shankarbros.dev - FloatPrompt: Teleprompter. We build calm, minimal, and privacy-focused Android applications.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://shankarbros.dev/floatprompt.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="FloatPrompt: Teleprompter">
+    <meta name="twitter:description" content="Shankarbros.dev - FloatPrompt: Teleprompter. We build calm, minimal, and privacy-focused Android applications.">
+    <link rel="canonical" href="https://shankarbros.dev/floatprompt.html">
+
+</head>
+<body>
+
+    <nav id="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">SB</div>
+                Shankarbros.dev <span style="color: var(--text-secondary); margin: 0 0.1rem; font-weight: 300;">/</span> FloatPrompt
+            </a>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#how-it-works">How it works</a>
+                <a href="https://play.google.com/store/apps/details?id=com.shankarbros.teleprompter&hl=en&gl=us" class="btn btn-dark" target="_blank">Get the app</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="app-hero">
+            <div class="bg-gradient-mesh" style="opacity: 0.3;"></div>
+            <div class="container">
+                <div class="app-hero-split">
+                    <div class="app-hero-content">
+                        <span class="badge" style="color: var(--accent-purple);">📝 FloatPrompt · Tools</span>
+                        <h1>Smooth video <span>recording.</span></h1>
+                        <p>Read scripts using a floating teleprompter widget over any video or camera app.</p>
+                        <div class="app-hero-btns">
+                            <a href="https://play.google.com/store/apps/details?id=com.shankarbros.teleprompter&hl=en&gl=us" class="btn btn-dark" target="_blank">Get it on Google Play</a>
+                            <a href="#how-it-works" class="btn btn-outline">See how it works</a>
+                        </div>
+                        <div class="social-proof">
+                            <div class="avatars">
+                                <div class="avatar" style="background: var(--pastel-pink);"></div>
+                                <div class="avatar" style="background: var(--pastel-blue);"></div>
+                                <div class="avatar" style="background: var(--pastel-purple);"></div>
+                                <div class="avatar" style="background: var(--pastel-green);"></div>
+                            </div>
+                            <span>0+ downloads on Google Play · ⭐ New</span>
+                        </div>
+                    </div>
+                    <div class="app-mockup">
+                        <img src="https://play-lh.googleusercontent.com/yhTYxQR0nsL-a5tBYdwafwE43j2AuIib9YK13rXxBaRS0OuYqqHhwx4KnWbVPS_jGREWc3NnuxEEGBdL96DRig" alt="Bloom App Mockup">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+        <section class="container" style="margin-top: 4rem; margin-bottom: 4rem;">
+            <div class="section-header" style="margin-bottom: 3rem; text-align: center;">
+                <span class="badge" style="color: var(--accent-purple); background: var(--accent-purple)15;">GALLERY</span>
+                <h2 style="font-size: 2.5rem; margin-top: 1rem;">Inside the app</h2>
+            </div>
+            
+            <style>
+                .screenshots-grid {
+                    display: grid;
+                    grid-template-columns: repeat(4, 1fr);
+                    gap: 1.5rem;
+                    align-items: start;
+                }
+                @media (max-width: 900px) {
+                    .screenshots-grid { grid-template-columns: repeat(2, 1fr); }
+                }
+                @media (max-width: 500px) {
+                    .screenshots-grid { grid-template-columns: 1fr; }
+                }
+            </style>
+            
+            <div class="screenshots-grid">
+                <img src="https://play-lh.googleusercontent.com/qcyTVDkKQXJENOyzUs9lcy3mt5vQAcvaW_eTdWhe_63fdX0ADxXZcOcisi7AlaUbTKNZLQPF7BXXoh8Zk7HSbg=w800" alt="Screenshot 1" style="width: 100%; height: auto; border-radius: 20px; box-shadow: 0 15px 35px -10px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05); object-fit: contain; background: var(--bg-secondary); transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)';" onmouseout="this.style.transform='none';">
+                <img src="https://play-lh.googleusercontent.com/hlOFOhNDcttEfZ30JhAG_xQrrAa1GV42KVXa4EjD90cUnt7hl4V1cYc3n_ENGhEzlzMtrVAZfXPGPSxMiSVJ5jw=w800" alt="Screenshot 2" style="width: 100%; height: auto; border-radius: 20px; box-shadow: 0 15px 35px -10px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05); object-fit: contain; background: var(--bg-secondary); transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)';" onmouseout="this.style.transform='none';">
+                <img src="https://play-lh.googleusercontent.com/DpWBVimM6T-CJ2k3VckF6KWpxsS_MP3yrynxaW-472ImZ2e8i7cE74HbIjgK7bKYX9vTpTen2nH1J9dD99k7Uw=w800" alt="Screenshot 3" style="width: 100%; height: auto; border-radius: 20px; box-shadow: 0 15px 35px -10px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05); object-fit: contain; background: var(--bg-secondary); transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)';" onmouseout="this.style.transform='none';">
+                <img src="https://play-lh.googleusercontent.com/kRfrTLnXIEZwzyENVV2T7p5bEHtHjIPZyV_s7pTiAB3tvVeBc4i_uhblUUjFNNzi60GzXLtr4ihN02iu3XBS=w800" alt="Screenshot 4" style="width: 100%; height: auto; border-radius: 20px; box-shadow: 0 15px 35px -10px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05); object-fit: contain; background: var(--bg-secondary); transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)';" onmouseout="this.style.transform='none';">
+
+            </div>
+        </section>
+
+        <section id="features" class="container">
+            <div class="section-header">
+                <span class="badge" style="color: var(--accent-purple);">📝 FloatPrompt · Tools</span>
+                <h2>Everything you need, nothing you don't.</h2>
+            </div>
+
+            <div class="features-grid">
+
+                <div class="feature-card-app">
+                    <div class="feature-icon-box" style="background: var(--pastel-purple); font-size: 1.5rem; display: flex; align-items: center; justify-content: center;">
+                        📺
+                    </div>
+                    <h3>Floating Widget</h3>
+                    <p>Works over any app.</p>
+                </div>
+                <div class="feature-card-app">
+                    <div class="feature-icon-box" style="background: var(--pastel-blue); font-size: 1.5rem; display: flex; align-items: center; justify-content: center;">
+                        ⚡
+                    </div>
+                    <h3>Adjustable Speed</h3>
+                    <p>Control scrolling speed easily.</p>
+                </div>
+                <div class="feature-card-app">
+                    <div class="feature-icon-box" style="background: var(--pastel-green); font-size: 1.5rem; display: flex; align-items: center; justify-content: center;">
+                        📝
+                    </div>
+                    <h3>Import Scripts</h3>
+                    <p>Easily load your text files.</p>
+                </div>
+                <div class="feature-card-app">
+                    <div class="feature-icon-box" style="background: var(--pastel-yellow); font-size: 1.5rem; display: flex; align-items: center; justify-content: center;">
+                        🎨
+                    </div>
+                    <h3>Customizable</h3>
+                    <p>Change font size and colors.</p>
+                </div>
+                <div class="feature-card-app">
+                    <div class="feature-icon-box" style="background: var(--pastel-pink); font-size: 1.5rem; display: flex; align-items: center; justify-content: center;">
+                        🔒
+                    </div>
+                    <h3>Privacy</h3>
+                    <p>No internet connection required.</p>
+                </div>
+                <div class="feature-card-app">
+                    <div class="feature-icon-box" style="background: var(--pastel-orange); font-size: 1.5rem; display: flex; align-items: center; justify-content: center;">
+                        📱
+                    </div>
+                    <h3>Material Design</h3>
+                    <p>Clean and intuitive interface.</p>
+                </div>
+            </div>
+</section>
+
+        <section id="how-it-works" class="container">
+            <div class="section-header">
+                <h2>Three steps to record 📝</h2>
+            </div>
+            
+            <div class="steps-container">
+
+                <div class="step-card" style="background: var(--pastel-purple);">
+                    <div class="step-number">01</div>
+                    <h3>Import</h3>
+                    <p>Load your script into the app.</p>
+                </div>
+                <div class="step-card" style="background: var(--pastel-blue);">
+                    <div class="step-number">02</div>
+                    <h3>Float</h3>
+                    <p>Launch the floating widget.</p>
+                </div>
+                <div class="step-card" style="background: var(--pastel-green);">
+                    <div class="step-number">03</div>
+                    <h3>Record</h3>
+                    <p>Open your camera and start reading.</p>
+                </div>
+            </div>
+</section>
+
+        
+        <section class="container" style="margin-top: 6rem; margin-bottom: 6rem;">
+            <div style="background: white; padding: 4rem; border-radius: 40px; border: 1px solid rgba(0,0,0,0.05); box-shadow: 0 20px 40px -15px rgba(0,0,0,0.05); position: relative; overflow: hidden;">
+                <!-- Decorative background element -->
+                <div style="position: absolute; top: 0; right: 0; width: 300px; height: 300px; background: var(--accent-purple); opacity: 0.05; filter: blur(60px); border-radius: 50%;"></div>
+                
+                <div class="section-header" style="text-align: left; margin-bottom: 3rem; position: relative; z-index: 1;">
+                    <span class="badge" style="color: var(--accent-purple); background: var(--accent-purple)15;">ABOUT THE APP</span>
+                    <h2 style="margin-top: 1rem; font-size: 2.5rem; letter-spacing: -0.02em;">FloatPrompt: Teleprompter</h2>
+                </div>
+                
+                <div class="app-description" style="line-height: 1.8; color: var(--text-secondary); font-size: 1.1rem; position: relative; z-index: 1; max-width: 800px;">
+                    <p style="margin-bottom: 1.5rem;">Read your scripts with ease while maintaining perfect eye contact with the camera.</p><p style="margin-bottom: 1.5rem;">Whether you are recording a vlog, presenting in a virtual meeting, or using a physical teleprompter glass rig, this app provides a clean and highly customizable script reading experience. Switch seamlessly between a classic full-screen display and a convenient floating widget overlay.</p><p style="margin-bottom: 1.5rem;">🌐 GLOBAL LANGUAGE SUPPORT<br><strong style="color: var(--text-primary); font-size: 1.2rem; display: block; margin-top: 2rem; margin-bottom: 0.5rem; border-bottom: 2px solid var(--bg-secondary); padding-bottom: 0.5rem;">Speak and read in your native language! The app interface is fully localized and supports 12 major languages:</strong></p><p style="margin-bottom: 1.5rem;">English, Español, Français, Deutsch, हिन्दी (Hindi), 中文 (Chinese), 日本語 (Japanese), العربية (Arabic), Русский (Russian), 한국어 (Korean), Bahasa Indonesia, and Português.<br>🌟 KEY FEATURES<br>1. Floating Widget Overlay<br>Multitask Seamlessly: Read your script while using your device&#39;s native camera app, social media recording tools, or video meeting platforms (such as Zoom, Teams, or Meet).<br>Adjustable Transparency: Control the opacity of the widget background so it doesn&#39;t block your view of other apps.<br>Fully Resizable &amp; Draggable: Place the widget anywhere on your screen, keeping it close to your camera lens to maintain natural eye contact.<br>2. Classic Full-Screen Mode<br>Distraction-Free Reading: A dedicated full-screen layout designed for rehearsals, public speaking, presentations, and voiceovers.<br>Mirror / Reverse Text Support: Reverse the text horizontally to use the app with physical teleprompter glass rigs and beam splitter monitors.<br>3. Complete Text Customization<br>Adjustable Scroll Speed: Fine-tune the scrolling speed to match your natural speaking pace.<br>Font &amp; Size Controls: Increase or decrease text size for comfortable reading at any distance.<br>Themes &amp; Colors: Change the text color and background contrast to suit your lighting environment, including support for dark and light modes.<br>4. Easy Script Management<br>Quick Creation &amp; Editing: Write, edit, and organize your scripts directly within the app.<br>Local Storage: Your scripts are stored securely on your device, ensuring privacy and offline accessibility.<br>🎬 WHO IS IT FOR?<br>Content Creators &amp; Vloggers: Record high-quality videos for YouTube, TikTok, or Instagram without memorizing lines.<br>Business Professionals: Deliver polished presentations and participate in video calls without looking away from the screen.<br>Public Speakers: Rehearse speeches and adjust formatting to ensure a smooth, natural delivery.<br>Podcasters &amp; Voice Artists: Read voiceover scripts without paper rustling sounds.<br>🔒 PRIVACY &amp; PERMISSIONS<br>Draw Over Other Apps (SYSTEM_ALERT_WINDOW): This permission is strictly used to display the floating teleprompter widget over other apps.<br>Your scripts are kept locally on your device and are never shared or uploaded to external servers.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="container">
+            <div class="cta-banner">
+                <h2>Ready to bloom?</h2>
+                <p>Free on Google Play. No ads, no judgement, just gentle progress.</p>
+                <div style="display: flex; gap: 1rem; justify-content: center;">
+                    <a href="https://play.google.com/store/apps/details?id=com.shankarbros.teleprompter&hl=en&gl=us" class="btn btn-dark" target="_blank">Get it on Google Play</a>
+                    <a href="#" class="btn btn-outline" style="background: white;">Join the newsletter</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">SB</div>
+                Shankarbros.dev <span style="color: var(--text-secondary); margin: 0 0.1rem; font-weight: 300;">/</span> FloatPrompt
+            </a>
+            <p class="copyright">© 2026 Shankarbros.dev. Made with love for happier mornings.</p>
+        </div>
+    </footer>
+
+    <script>
+        window.addEventListener('scroll', function() {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>

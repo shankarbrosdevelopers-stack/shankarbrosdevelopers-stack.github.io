@@ -1,0 +1,48 @@
+name: Daily Play Store Sync
+
+on:
+  schedule:
+    # Run at midnight UTC every day
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+    # Allow running manually from the GitHub Actions tab
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+
+    - name: Install Node dependencies
+      working-directory: ./scripts
+      run: npm install
+
+    - name: Setup Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+
+    - name: Run Scraper
+      working-directory: ./scripts
+      run: node scrape.js
+
+    - name: Generate HTML Files
+      working-directory: ./scripts
+      run: python gen_scraped.py
+
+    - name: Commit and Push Changes
+      uses: stefanzweifel/git-auto-commit-action@v5
+      with:
+        commit_message: "chore: Auto-update app descriptions and ratings from Google Play"
+        branch: main
+        file_pattern: "*.html scripts/apps_data.json"
