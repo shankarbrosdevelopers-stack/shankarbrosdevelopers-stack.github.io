@@ -459,7 +459,7 @@
                 <div class="about-text">
                     <span class="badge" style="color: var(--accent-purple);">ABOUT THE STUDIO</span>
                     <div style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 0.5rem; margin-top: 1.5rem;">
-                        <div style="font-size: 8rem; font-weight: 800; line-height: 0.8; font-family: var(--font-serif); background: linear-gradient(90deg, #9333ea, #ec4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent; padding-bottom: 0.5rem;">7</div>
+                        <div id="years-count" style="font-size: 8rem; font-weight: 800; line-height: 0.8; font-family: var(--font-serif); background: linear-gradient(90deg, #9333ea, #ec4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent; padding-bottom: 0.5rem;">7</div>
                         <div style="font-size: 1.5rem; font-weight: 700; color: var(--text-primary); text-transform: uppercase; letter-spacing: 0.05em; line-height: 1.2;">
                             Years of<br>
                             <span style="color: var(--accent-pink); font-size: 1.1rem; font-weight: 600;">Calm Android Apps</span>
@@ -549,6 +549,12 @@
             toggleBtn.addEventListener('click', () => {
                 navLinks.classList.toggle('active');
             });
+        }
+
+        // Dynamic Years of Crafting
+        const yearsCount = document.getElementById('years-count');
+        if (yearsCount) {
+            yearsCount.textContent = new Date().getFullYear() - 2019;
         }
 
         // App Filtering Logic
