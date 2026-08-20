@@ -372,3 +372,12 @@ footer .container {
     color: #9ca3af;
     align-self: flex-end;
 }
+
+.reviews-static-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
