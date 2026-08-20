@@ -170,15 +170,15 @@
         }
     </style>
 
-    <meta name="description" content="Shankarbros.dev - Bloom | Tiny habits, big joy.. We build calm, minimal, and privacy-focused Android applications.">
-    <meta property="og:title" content="Bloom | Tiny habits, big joy.">
-    <meta property="og:description" content="Shankarbros.dev - Bloom | Tiny habits, big joy.. We build calm, minimal, and privacy-focused Android applications.">
+    <meta name="description" content="Shankarbros.dev - FloatPrompt: Teleprompter. We build calm, minimal, and privacy-focused Android applications.">
+    <meta property="og:title" content="FloatPrompt: Teleprompter">
+    <meta property="og:description" content="Shankarbros.dev - FloatPrompt: Teleprompter. We build calm, minimal, and privacy-focused Android applications.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://shankarbros.dev/app.html">
+    <meta property="og:url" content="https://shankarbros.dev/floatprompt.html">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Bloom | Tiny habits, big joy.">
-    <meta name="twitter:description" content="Shankarbros.dev - Bloom | Tiny habits, big joy.. We build calm, minimal, and privacy-focused Android applications.">
-    <link rel="canonical" href="https://shankarbros.dev/app.html">
+    <meta name="twitter:title" content="FloatPrompt: Teleprompter">
+    <meta name="twitter:description" content="Shankarbros.dev - FloatPrompt: Teleprompter. We build calm, minimal, and privacy-focused Android applications.">
+    <link rel="canonical" href="https://shankarbros.dev/floatprompt.html">
 
 </head>
 <body>
@@ -189,6 +189,13 @@
                 <div class="logo-icon">SB</div>
                 Shankarbros.dev <span style="color: var(--text-secondary); margin: 0 0.1rem; font-weight: 300;">/</span> FloatPrompt
             </a>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
             <div class="nav-links">
                 <a href="#features">Features</a>
                 <a href="#how-it-works">How it works</a>
@@ -230,7 +237,7 @@
         
         <section class="container" style="margin-top: 4rem; margin-bottom: 4rem;">
             <div class="section-header" style="margin-bottom: 3rem; text-align: center;">
-                <span class="badge" style="color: var(--accent-purple); background: var(--accent-purple)15;">GALLERY</span>
+                <span class="badge" style="color: var(--accent-purple); background: color-mix(in srgb, var(--accent-purple) 15%, transparent);">GALLERY</span>
                 <h2 style="font-size: 2.5rem; margin-top: 1rem;">Inside the app</h2>
             </div>
             
@@ -343,7 +350,7 @@
                 <div style="position: absolute; top: 0; right: 0; width: 300px; height: 300px; background: var(--accent-purple); opacity: 0.05; filter: blur(60px); border-radius: 50%;"></div>
                 
                 <div class="section-header" style="text-align: left; margin-bottom: 3rem; position: relative; z-index: 1;">
-                    <span class="badge" style="color: var(--accent-purple); background: var(--accent-purple)15;">ABOUT THE APP</span>
+                    <span class="badge" style="color: var(--accent-purple); background: color-mix(in srgb, var(--accent-purple) 15%, transparent);">ABOUT THE APP</span>
                     <h2 style="margin-top: 1rem; font-size: 2.5rem; letter-spacing: -0.02em;">FloatPrompt: Teleprompter</h2>
                 </div>
                 
@@ -359,7 +366,6 @@
                 <p>Free on Google Play. No ads, no judgement, just gentle progress.</p>
                 <div style="display: flex; gap: 1rem; justify-content: center;">
                     <a href="https://play.google.com/store/apps/details?id=com.shankarbros.teleprompter&hl=en&gl=us" class="btn btn-dark" target="_blank">Get it on Google Play</a>
-                    <a href="#" class="btn btn-outline" style="background: white;">Join the newsletter</a>
                 </div>
             </div>
         </section>
@@ -384,6 +390,15 @@
                 nav.classList.remove('scrolled');
             }
         });
+
+        // Mobile Navigation Toggle
+        const toggleBtn = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        if (toggleBtn && navLinks) {
+            toggleBtn.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+        }
     </script>
 </body>
 </html>

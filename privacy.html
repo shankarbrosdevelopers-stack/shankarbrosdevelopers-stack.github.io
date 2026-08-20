@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -64,11 +64,17 @@
                 <div class="logo-icon">SB</div>
                 Shankarbros.dev
             </a>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
             <div class="nav-links">
-                <a href="apps.html">Apps</a>
                 <a href="about.html">About</a>
                 <a href="contact.html">Contact</a>
-                <a href="#" class="btn btn-dark">Browse apps →</a>
+                <a href="apps.html" class="btn btn-dark">Browse apps →</a>
             </div>
         </div>
     </nav>
@@ -152,6 +158,15 @@
                 nav.classList.remove('scrolled');
             }
         });
+
+        // Mobile Navigation Toggle
+        const toggleBtn = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        if (toggleBtn && navLinks) {
+            toggleBtn.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+        }
     </script>
 </body>
 </html>

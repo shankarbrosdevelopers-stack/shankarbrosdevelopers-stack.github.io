@@ -13,6 +13,9 @@
     --accent-pink: #db2777; /* Darker pink for text contrast */
     --pastel-purple: #e9d5ff;
     --accent-purple: #7c3aed; /* Darker purple for text contrast */
+    --accent-orange: #ea580c; /* Darker orange for text contrast */
+    --accent-green: #15803d;  /* Darker green for text contrast */
+    --accent-blue: #2563eb;   /* Darker blue for text contrast */
     --pastel-blue: #bfdbfe;
     --pastel-green: #bbf7d0;
     --pastel-yellow: #fef08a;
@@ -239,15 +242,50 @@ footer .container {
     align-items: center;
 }
 
+@media (max-width: 768px) {
+    footer .container {
+        flex-direction: column;
+        gap: 1.5rem;
+        text-align: center;
+    }
+}
+
 .copyright {
     font-size: 0.85rem;
     color: var(--text-secondary);
 }
 
-/* Responsive */
+/* Responsive Navigation */
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    color: var(--text-primary);
+}
+
 @media (max-width: 768px) {
+    .nav-toggle {
+        display: block;
+    }
+
     .nav-links {
         display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: var(--bg-primary);
+        padding: 2rem;
+        border-bottom: 1px solid rgba(0,0,0,0.05);
+        gap: 1.5rem;
+        box-shadow: var(--shadow-lg);
+    }
+
+    .nav-links.active {
+        display: flex;
     }
 }
 /* Reviews Marquee */
