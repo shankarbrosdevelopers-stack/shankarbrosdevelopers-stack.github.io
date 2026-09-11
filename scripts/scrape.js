@@ -9,7 +9,8 @@ const appIds = [
     'com.shankarbros.telugu2026calendarandrasiphalalu',
     'com.shankarbros.vastucompass',
     'com.shankarbros.teleprompter',
-    'com.shankarbros.bubblelevel'
+    'com.shankarbros.bubblelevel',
+    'com.shankarbros.memorygame'
 ];
 
 console.log(`Fetching details for ${appIds.length} apps...`);

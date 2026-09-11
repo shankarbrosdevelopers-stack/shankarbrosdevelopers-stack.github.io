@@ -178,6 +178,29 @@ static_apps = {
         ],
         "cta_title": "Go wireless today.",
         "mockup": "ftp_server_mockup.jpg"
+    },
+    "com.shankarbros.memorygame": {
+        "filename": "memory-game.html",
+        "nav_name": "Memory Game",
+        "badge": "🎮 Memory Game · Games",
+        "badge_color": "var(--accent-pink)",
+        "hero_h1": "Train your <span>memory.</span>",
+        "features": [
+            ("var(--pastel-blue)", "🧩", "Classic Gameplay", "Match pairs of cards to win."),
+            ("var(--pastel-purple)", "🧠", "Brain Training", "Improve your memory and focus."),
+            ("var(--pastel-green)", "⏱️", "Time Challenge", "Race against the clock."),
+            ("var(--pastel-pink)", "🌟", "Levels", "Multiple difficulty levels to master."),
+            ("var(--pastel-orange)", "🎨", "Beautiful Design", "Clean and simple interface."),
+            ("var(--pastel-yellow)", "🔒", "Privacy First", "No trackers, calm experience.")
+        ],
+        "steps_title": "Three steps to play 🎮",
+        "steps": [
+            ("var(--pastel-blue)", "01", "Start", "Choose your difficulty."),
+            ("var(--pastel-purple)", "02", "Flip", "Tap cards to reveal pairs."),
+            ("var(--pastel-green)", "03", "Match", "Find all pairs to win.")
+        ],
+        "cta_title": "Ready to test your memory?",
+        "mockup": "bloom_mockup.png"
     }
 }
 

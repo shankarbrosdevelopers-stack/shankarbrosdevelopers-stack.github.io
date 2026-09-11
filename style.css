@@ -1,6 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600&display=swap');
 
 :root {
+    /* Theme Variables */
+    --card-bg: #ffffff;
+    --border-color: rgba(0,0,0,0.05);
+    --nav-bg: rgba(253, 252, 246, 0.7);
+    --nav-border: rgba(0,0,0,0.05);
+    
     /* Colors */
     --bg-primary: #fdfcf6;
     --text-primary: #111827;
@@ -70,8 +76,14 @@ p {
     padding: 0 2rem;
 }
 
+@media (max-width: 768px) {
+    .container {
+        padding: 0 1.25rem;
+    }
+}
+
 section {
-    padding: 5rem 0; /* Restoring more spacious padding */
+    padding: clamp(3rem, 10vw, 5rem) 0; /* Responsive section padding */
 }
 
 /* Components */
@@ -102,7 +114,7 @@ section {
 
 .btn-outline {
     border: 1px solid #e5e7eb;
-    background: white;
+    background: var(--card-bg);
     color: var(--text-primary);
 }
 
@@ -134,9 +146,10 @@ nav {
 }
 
 nav.scrolled {
-    background: rgba(253, 252, 246, 0.8);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(0,0,0,0.05);
+    background: var(--nav-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--nav-border);
 }
 
 nav .container {
@@ -215,8 +228,15 @@ nav .container {
     overflow: hidden;
 }
 
+@media (max-width: 768px) {
+    .cta-banner {
+        padding: 3rem 1.5rem;
+        border-radius: 24px;
+    }
+}
+
 .cta-banner h2 {
-    font-size: 3.5rem;
+    font-size: clamp(2rem, 6vw, 3.5rem);
     margin-bottom: 1.5rem; /* Increased margin */
 }
 
@@ -316,7 +336,7 @@ footer .container {
 }
 
 .review-card {
-    background: white;
+    background: var(--card-bg);
     padding: 1.5rem;
     border-radius: 20px;
     border: 1px solid rgba(0,0,0,0.05);
@@ -380,4 +400,26 @@ footer .container {
     gap: 1.5rem;
     margin: 0 auto;
     padding: 0 1rem;
+}
+
+[data-theme="dark"] {
+    --bg-primary: #0f172a;
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --card-bg: #1e293b;
+    --border-color: rgba(255,255,255,0.05);
+    --nav-bg: rgba(15, 23, 42, 0.7);
+    --nav-border: rgba(255,255,255,0.05);
+    --dark-btn: #f8fafc;
+    --dark-btn-hover: #e2e8f0;
+}
+
+[data-theme="dark"] .btn-dark {
+    background-color: var(--dark-btn) !important;
+    color: #0f172a !important;
+}
+
+[data-theme="dark"] .badge, [data-theme="dark"] .hero-badge {
+    background-color: rgba(255,255,255,0.05);
+    border-color: var(--border-color);
 }
