@@ -423,3 +423,15 @@ footer .container {
     background-color: rgba(255,255,255,0.05);
     border-color: var(--border-color);
 }
+
+[data-theme="dark"] .step-card,
+[data-theme="dark"] .step-card h3,
+[data-theme="dark"] .step-card p,
+[data-theme="dark"] .step-number {
+    color: #0f172a !important;
+}
+
+[data-theme="dark"] .filter-btn.active {
+    color: #0f172a !important;
+}
+
