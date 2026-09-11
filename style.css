@@ -441,3 +441,8 @@ footer .container {
     border-color: rgba(255, 255, 255, 0.2) !important;
 }
 
+
+[data-theme="dark"] .logo-icon {
+    color: #0f172a !important;
+}
+
