@@ -435,3 +435,9 @@ footer .container {
     color: #0f172a !important;
 }
 
+
+[data-theme="dark"] .filter-btn {
+    color: var(--text-primary) !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
