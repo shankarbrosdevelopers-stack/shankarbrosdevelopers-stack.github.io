@@ -3,6 +3,7 @@
 :root {
     /* Theme Variables */
     --card-bg: #ffffff;
+    --bg-secondary: #f3f4f6;
     --border-color: rgba(0,0,0,0.05);
     --nav-bg: rgba(253, 252, 246, 0.7);
     --nav-border: rgba(0,0,0,0.05);
@@ -404,14 +405,74 @@ footer .container {
 
 [data-theme="dark"] {
     --bg-primary: #0f172a;
+    --bg-secondary: #334155;
     --text-primary: #f8fafc;
     --text-secondary: #94a3b8;
     --card-bg: #1e293b;
-    --border-color: rgba(255,255,255,0.05);
+    --border-color: rgba(255,255,255,0.08);
     --nav-bg: rgba(15, 23, 42, 0.7);
     --nav-border: rgba(255,255,255,0.05);
     --dark-btn: #f8fafc;
     --dark-btn-hover: #e2e8f0;
+
+    /* Accent colors adjusted for vibrant dark mode contrast */
+    --accent-pink: #f472b6;
+    --accent-purple: #c084fc;
+    --accent-orange: #fb923c;
+    --accent-green: #4ade80;
+    --accent-blue: #60a5fa;
+}
+
+.about-app-card {
+    background: #ffffff !important;
+    color: #111827 !important;
+    padding: 4rem;
+    border-radius: 40px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.05);
+    position: relative;
+    overflow: hidden;
+}
+
+.about-app-card h2 {
+    color: #0f172a !important;
+}
+
+.about-app-card .app-description,
+.about-app-card .app-description p {
+    color: #374151 !important;
+}
+
+.about-app-card .app-description strong {
+    color: #0f172a !important;
+    border-bottom-color: #e2e8f0 !important;
+}
+
+@media (max-width: 768px) {
+    .about-app-card {
+        padding: 2.5rem 1.5rem;
+        border-radius: 24px;
+    }
+}
+
+[data-theme="dark"] .about-app-card {
+    background: #ffffff !important;
+    border-color: rgba(255, 255, 255, 0.15) !important;
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.3) !important;
+}
+
+[data-theme="dark"] .about-app-card h2 {
+    color: #0f172a !important;
+}
+
+[data-theme="dark"] .about-app-card .app-description,
+[data-theme="dark"] .about-app-card .app-description p {
+    color: #374151 !important;
+}
+
+[data-theme="dark"] .about-app-card .app-description strong {
+    color: #0f172a !important;
+    border-bottom-color: #e2e8f0 !important;
 }
 
 [data-theme="dark"] .btn-dark {

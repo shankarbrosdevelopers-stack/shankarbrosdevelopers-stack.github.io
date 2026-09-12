@@ -360,7 +360,7 @@ for app_data in scraped_data:
     
     # 2. Highlight headers (lines that end with a colon and don't contain other HTML)
     # We use a lookahead `(?=<br>|</p>)` so we don't consume the line break, allowing consecutive headers to match.
-    desc_html = re.sub(r'(<br>|<p[^>]*>)\s*([^<]*?:)\s*(?=<br>|</p>)', r'\1<strong style="color: var(--text-primary); font-size: 1.2rem; display: block; margin-top: 2rem; margin-bottom: 0.5rem; border-bottom: 2px solid var(--bg-secondary); padding-bottom: 0.5rem;">\2</strong>', desc_html)
+    desc_html = re.sub(r'(<br>|<p[^>]*>)\s*([^<]*?:)\s*(?=<br>|</p>)', r'\1<strong style="color: #0f172a; font-size: 1.2rem; display: block; margin-top: 2rem; margin-bottom: 0.5rem; border-bottom: 2px solid #e2e8f0; padding-bottom: 0.5rem;">\2</strong>', desc_html)
     
     # 3. Highlight list items (lines starting with a bullet or emoji list)
     # Removing the old list item regex as the user's manual emojis work perfectly for list styling now.
@@ -368,16 +368,16 @@ for app_data in scraped_data:
     # Inject the real descriptionHTML as a new section before the CTA
     about_html = f'''
         <section class="container" style="margin-top: 6rem; margin-bottom: 6rem;">
-            <div style="background: white; padding: 4rem; border-radius: 40px; border: 1px solid rgba(0,0,0,0.05); box-shadow: 0 20px 40px -15px rgba(0,0,0,0.05); position: relative; overflow: hidden;">
+            <div class="about-app-card" style="background: #ffffff; color: #111827; padding: 4rem; border-radius: 40px; border: 1px solid rgba(0,0,0,0.08); box-shadow: 0 20px 40px -15px rgba(0,0,0,0.05); position: relative; overflow: hidden;">
                 <!-- Decorative background element -->
                 <div style="position: absolute; top: 0; right: 0; width: 300px; height: 300px; background: {s_app['badge_color']}; opacity: 0.05; filter: blur(60px); border-radius: 50%;"></div>
                 
                 <div class="section-header" style="text-align: left; margin-bottom: 3rem; position: relative; z-index: 1;">
                     <span class="badge" style="color: {s_app['badge_color']}; background: color-mix(in srgb, {s_app['badge_color']} 15%, transparent);">ABOUT THE APP</span>
-                    <h2 style="margin-top: 1rem; font-size: 2.5rem; letter-spacing: -0.02em;">{app_data["title"]}</h2>
+                    <h2 style="margin-top: 1rem; font-size: 2.5rem; letter-spacing: -0.02em; color: #0f172a;">{app_data["title"]}</h2>
                 </div>
                 
-                <div class="app-description" style="line-height: 1.8; color: var(--text-secondary); font-size: 1.1rem; position: relative; z-index: 1; max-width: 800px;">
+                <div class="app-description" style="line-height: 1.8; color: #374151; font-size: 1.1rem; position: relative; z-index: 1; max-width: 800px;">
                     {desc_html}
                 </div>
             </div>
