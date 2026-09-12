@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shankarbros.dev | Colorful Android Apps</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=2">
     <style>
         /* Home Specific Styles */
         .hero {
@@ -283,6 +283,35 @@
 </head>
 <body>
 
+    <!-- Option 1: Top Announcement Banner -->
+    <div id="promo-banner" style="background: linear-gradient(90deg, var(--pastel-pink), var(--pastel-blue)); color: #0f172a; text-align: center; padding: 0.6rem 1rem; position: fixed; top: 0; left: 0; right: 0; z-index: 1005; font-weight: 500; font-size: 0.88rem; box-shadow: 0 2px 10px rgba(0,0,0,0.05); display: flex; align-items: center; justify-content: center; gap: 0.5rem; transition: transform 0.3s ease;">
+        <span>🎉 <strong>New App Release:</strong> Train your brain with our calming <a href="memory-game.html" style="color: #0f172a; font-weight: 700; text-decoration: underline;">Memory Match</a> game!</span>
+    </div>
+    <style>
+        #navbar {
+            top: 38px !important;
+            transition: top 0.3s ease;
+        }
+        #navbar.scrolled {
+            top: 0 !important;
+        }
+    </style>
+    <script>
+        window.addEventListener('scroll', () => {
+            const banner = document.getElementById('promo-banner');
+            const nav = document.getElementById('navbar');
+            if (banner && nav) {
+                if (window.scrollY > 30) {
+                    banner.style.transform = 'translateY(-100%)';
+                    nav.style.top = '0';
+                } else {
+                    banner.style.transform = 'translateY(0)';
+                    nav.style.top = '38px';
+                }
+            }
+        });
+    </script>
+
     <nav id="navbar">
         <div class="container">
             <a href="index.html" class="logo">
@@ -540,22 +569,22 @@
             </a>
             <!-- Social Media Icons -->
             <div style="display: flex; gap: 1.25rem; align-items: center;">
-                <a href="https://facebook.com/shankarbro.dev" target="_blank" rel="noopener noreferrer" title="Facebook" style="color: var(--text-secondary); transition: color 0.2s;" onmouseover="this.style.color='#1877F2'" onmouseout="this.style.color=''">
+                <a href="https://facebook.com/shankarbro.dev" target="_blank" rel="noopener noreferrer" title="Facebook" class="social-icon-link">
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
                 </a>
-                <a href="https://instagram.com/shankarbros.dev" target="_blank" rel="noopener noreferrer" title="Instagram" style="color: var(--text-secondary); transition: color 0.2s;" onmouseover="this.style.color='#E1306C'" onmouseout="this.style.color=''">
+                <a href="https://instagram.com/shankarbros.dev" target="_blank" rel="noopener noreferrer" title="Instagram" class="social-icon-link">
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
                 </a>
-                <a href="https://x.com/shankarbros_dev" target="_blank" rel="noopener noreferrer" title="X (Twitter)" style="color: var(--text-secondary); transition: color 0.2s;" onmouseover="this.style.color='#000000'" onmouseout="this.style.color=''">
+                <a href="https://x.com/shankarbros_dev" target="_blank" rel="noopener noreferrer" title="X (Twitter)" class="social-icon-link">
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
                 </a>
-                <a href="https://youtube.com/@shankarbros.developers" target="_blank" rel="noopener noreferrer" title="YouTube" style="color: var(--text-secondary); transition: color 0.2s;" onmouseover="this.style.color='#FF0000'" onmouseout="this.style.color=''">
+                <a href="https://youtube.com/@shankarbros.developers" target="_blank" rel="noopener noreferrer" title="YouTube" class="social-icon-link">
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/></svg>
                 </a>
-                <a href="https://reddit.com/r/shankarbros" target="_blank" rel="noopener noreferrer" title="Reddit" style="color: var(--text-secondary); transition: color 0.2s;" onmouseover="this.style.color='#FF4500'" onmouseout="this.style.color=''">
+                <a href="https://reddit.com/r/shankarbros" target="_blank" rel="noopener noreferrer" title="Reddit" class="social-icon-link">
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/><path d="M20 12a2 2 0 0 0-3.37-1.44 9.85 9.85 0 0 0-5.13-1.63l.87-4.1 2.83.6a1.5 1.5 0 1 0 1.55-1.47 1.5 1.5 0 0 0-1.35.85l-3.16-.67a.25.25 0 0 0-.29.19l-1 4.57a9.88 9.88 0 0 0-5.18 1.64A2 2 0 1 0 4 13a3.56 3.56 0 0 0 0 .5c0 2.55 3.58 4.62 8 4.62s8-2.07 8-4.62a3.56 3.56 0 0 0 0-.5A2 2 0 0 0 20 12zm-12.5 1a1 1 0 1 1 1 1 1 1 0 0 1-1-1zm5.5 2.81a3.34 3.34 0 0 1-2-.52.25.25 0 0 1 .3-.4 2.85 2.85 0 0 0 1.7.42 2.85 2.85 0 0 0 1.7-.42.25.25 0 1 1 .3.4 3.34 3.34 0 0 1-2 .52zm.5-1.81a1 1 0 1 1 1-1 1 1 0 0 1-1 1z" fill="white"/></svg>
                 </a>
-                <a href="https://linkedin.com/company/shankarbros" target="_blank" rel="noopener noreferrer" title="LinkedIn" style="color: var(--text-secondary); transition: color 0.2s;" onmouseover="this.style.color='#0A66C2'" onmouseout="this.style.color=''">
+                <a href="https://linkedin.com/company/shankarbros" target="_blank" rel="noopener noreferrer" title="LinkedIn" class="social-icon-link">
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
                 </a>
             </div>
@@ -805,5 +834,245 @@
         });
     })();
 </script>
+
+    <!-- Game Promo Modal (Option 3) -->
+    <div id="game-modal-overlay" class="game-modal-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <div class="game-modal-card">
+            <button class="game-modal-close" id="game-modal-close" aria-label="Close modal">&times;</button>
+            <div class="game-modal-badge">✨ Featured Release</div>
+            <div class="game-modal-icon-wrap">
+                <img src="https://play-lh.googleusercontent.com/RUHJFStvbtZ89wE9t4y4ZmQJB4rGWFo1-l_-nzSWNeizZt6IbcKT5koypRjw3wzjh2jCdGVFoYxNDtIEeCDcfA=w112" alt="Memory Match icon" class="game-modal-img">
+            </div>
+            <h2 id="modal-title" class="game-modal-title">Memory Match</h2>
+            <p class="game-modal-desc">Train your brain and unwind with our calm, retro memory training puzzle designed to sharpen focus and relieve stress.</p>
+            <div class="game-modal-stats">
+                <span>🎮 Brain Training</span>
+                <span>🧩 Retro Gameplay</span>
+                <span>🛡️ Minimal Ads</span>
+            </div>
+            <div class="game-modal-actions">
+                <a href="memory-game.html" class="btn btn-dark game-modal-btn">Explore Game & Play</a>
+                <button class="game-modal-skip" id="game-modal-skip">Maybe Later</button>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .game-modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.65);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.3s ease;
+        }
+
+        .game-modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .game-modal-card {
+            background: var(--card-bg, #ffffff);
+            color: var(--text-primary, #0f172a);
+            border: 1px solid var(--border-color, #e2e8f0);
+            border-radius: 28px;
+            padding: 2.25rem 2rem 1.85rem;
+            max-width: 420px;
+            width: 100%;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            transform: scale(0.92) translateY(20px);
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .game-modal-overlay.active .game-modal-card {
+            transform: scale(1) translateY(0);
+        }
+
+        .game-modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1.15rem;
+            background: transparent;
+            border: none;
+            font-size: 1.75rem;
+            color: var(--text-secondary, #64748b);
+            cursor: pointer;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: background 0.2s ease, color 0.2s ease;
+            line-height: 1;
+        }
+
+        .game-modal-close:hover {
+            background: rgba(0, 0, 0, 0.05);
+            color: var(--text-primary);
+        }
+
+        [data-theme="dark"] .game-modal-close:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .game-modal-badge {
+            display: inline-block;
+            font-size: 0.78rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: #db2777;
+            background: rgba(219, 39, 119, 0.1);
+            padding: 0.35rem 0.85rem;
+            border-radius: 9999px;
+            margin-bottom: 1.25rem;
+        }
+
+        .game-modal-icon-wrap {
+            width: 80px;
+            height: 80px;
+            border-radius: 22px;
+            margin: 0 auto 1.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--pastel-pink, #fce7f3), var(--pastel-purple, #f3e8ff));
+            box-shadow: 0 10px 25px -5px rgba(219, 39, 119, 0.25);
+            overflow: hidden;
+        }
+
+        .game-modal-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 22px;
+        }
+
+        .game-modal-title {
+            font-size: 1.65rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .game-modal-desc {
+            font-size: 0.95rem;
+            color: var(--text-secondary, #64748b);
+            line-height: 1.55;
+            margin-bottom: 1.25rem;
+        }
+
+        .game-modal-stats {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            font-size: 0.78rem;
+            color: var(--text-secondary, #64748b);
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .game-modal-stats span {
+            background: rgba(0, 0, 0, 0.03);
+            border: 1px solid var(--border-color, #e2e8f0);
+            padding: 0.3rem 0.65rem;
+            border-radius: 8px;
+        }
+
+        [data-theme="dark"] .game-modal-stats span {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .game-modal-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 0.65rem;
+        }
+
+        .game-modal-btn {
+            width: 100%;
+            padding: 0.85rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+            border-radius: 9999px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .game-modal-skip {
+            background: transparent;
+            border: none;
+            color: var(--text-secondary, #64748b);
+            font-size: 0.85rem;
+            cursor: pointer;
+            padding: 0.4rem;
+            text-decoration: underline;
+            transition: color 0.2s ease;
+        }
+
+        .game-modal-skip:hover {
+            color: var(--text-primary);
+        }
+    </style>
+
+    <script>
+        (function() {
+            const modalOverlay = document.getElementById('game-modal-overlay');
+            const closeBtn = document.getElementById('game-modal-close');
+            const skipBtn = document.getElementById('game-modal-skip');
+
+            function openModal() {
+                if (!modalOverlay) return;
+                modalOverlay.classList.add('active');
+                modalOverlay.setAttribute('aria-hidden', 'false');
+            }
+
+            function closeModal() {
+                if (!modalOverlay) return;
+                modalOverlay.classList.remove('active');
+                modalOverlay.setAttribute('aria-hidden', 'true');
+                try {
+                    sessionStorage.setItem('dismissed_memory_match_promo', 'true');
+                } catch(e) {}
+            }
+
+            let dismissed = false;
+            try {
+                dismissed = sessionStorage.getItem('dismissed_memory_match_promo') === 'true';
+            } catch(e) {}
+
+            // Open after slight delay on first page load
+            if (!dismissed) {
+                setTimeout(openModal, 700);
+            }
+
+            if (closeBtn) closeBtn.addEventListener('click', closeModal);
+            if (skipBtn) skipBtn.addEventListener('click', closeModal);
+
+            if (modalOverlay) {
+                modalOverlay.addEventListener('click', (e) => {
+                    if (e.target === modalOverlay) closeModal();
+                });
+            }
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && modalOverlay && modalOverlay.classList.contains('active')) {
+                    closeModal();
+                }
+            });
+        })();
+    </script>
 </body>
 </html>

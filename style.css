@@ -453,3 +453,40 @@ footer .container {
     color: #0f172a !important;
 }
 
+
+/* Footer Social Links & Reset */
+footer a,
+.social-icon-link {
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+footer a:visited,
+.social-icon-link:visited {
+    color: var(--text-secondary);
+}
+
+footer a:hover,
+.social-icon-link:hover {
+    color: var(--text-primary);
+}
+
+.social-icon-link:hover {
+    transform: translateY(-2px);
+}
+
+[data-theme="dark"] footer a,
+[data-theme="dark"] .social-icon-link {
+    color: var(--text-secondary) !important;
+}
+
+[data-theme="dark"] footer a:visited,
+[data-theme="dark"] .social-icon-link:visited {
+    color: var(--text-secondary) !important;
+}
+
+[data-theme="dark"] footer a:hover,
+[data-theme="dark"] .social-icon-link:hover {
+    color: var(--text-primary) !important;
+}
