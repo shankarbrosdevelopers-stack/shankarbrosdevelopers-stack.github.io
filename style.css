@@ -120,7 +120,8 @@ section {
 }
 
 .btn-outline:hover {
-    background-color: #f9fafb;
+    background-color: #f3f4f6;
+    border-color: #d1d5db;
     transform: translateY(-2px);
 }
 
@@ -478,6 +479,27 @@ footer .container {
 [data-theme="dark"] .btn-dark {
     background-color: var(--dark-btn) !important;
     color: #0f172a !important;
+}
+
+[data-theme="dark"] .btn-outline {
+    background-color: var(--card-bg) !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
+    color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .btn-outline:hover {
+    background-color: #334155 !important;
+    border-color: rgba(255, 255, 255, 0.35) !important;
+    color: #ffffff !important;
+    transform: translateY(-2px);
+}
+
+#theme-toggle:hover {
+    background-color: rgba(0, 0, 0, 0.05) !important;
+}
+
+[data-theme="dark"] #theme-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.1) !important;
 }
 
 [data-theme="dark"] .badge, [data-theme="dark"] .hero-badge {
