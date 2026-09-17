@@ -10,7 +10,8 @@ const appIds = [
     'com.shankarbros.vastucompass',
     'com.shankarbros.teleprompter',
     'com.shankarbros.bubblelevel',
-    'com.shankarbros.memorygame'
+    'com.shankarbros.memorygame',
+    'com.shankarbros.gbaemulator'
 ];
 
 console.log(`Fetching reviews for ${appIds.length} apps...`);

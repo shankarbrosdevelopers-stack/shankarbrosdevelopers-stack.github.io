@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Apps | Shankarbros.dev</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=2">
     <style>
         /* Home Specific Styles */
         .hero {
@@ -283,6 +283,35 @@
 </head>
 <body>
 
+    <!-- Option 1: Top Announcement Banner -->
+    <div id="promo-banner" style="background: linear-gradient(90deg, var(--pastel-pink), var(--pastel-blue)); color: #0f172a; text-align: center; padding: 0.6rem 1rem; position: fixed; top: 0; left: 0; right: 0; z-index: 1005; font-weight: 500; font-size: 0.88rem; box-shadow: 0 2px 10px rgba(0,0,0,0.05); display: flex; align-items: center; justify-content: center; gap: 0.5rem; transition: transform 0.3s ease;">
+        <span>🎉 <strong>New App Release:</strong> Train your brain with our calming <a href="memory-game.html" style="color: #0f172a; font-weight: 700; text-decoration: underline;">Memory Match</a> game!</span>
+    </div>
+    <style>
+        #navbar {
+            top: 38px !important;
+            transition: top 0.3s ease;
+        }
+        #navbar.scrolled {
+            top: 0 !important;
+        }
+    </style>
+    <script>
+        window.addEventListener('scroll', () => {
+            const banner = document.getElementById('promo-banner');
+            const nav = document.getElementById('navbar');
+            if (banner && nav) {
+                if (window.scrollY > 30) {
+                    banner.style.transform = 'translateY(-100%)';
+                    nav.style.top = '0';
+                } else {
+                    banner.style.transform = 'translateY(0)';
+                    nav.style.top = '38px';
+                }
+            }
+        });
+    </script>
+
     <nav id="navbar">
         <div class="container">
             <a href="index.html" class="logo">
@@ -339,7 +368,7 @@
                     <h3>Vastu Compass</h3>
                     <p>AI-powered directional guidance for your home & office.</p>
                     <div class="app-footer">
-                        <span>⭐ New · 1,000+</span>
+                        <span>⭐ New · 10+</span>
                         <span class="view-link">View on Play →</span>
                     </div>
                 </a>
@@ -452,6 +481,24 @@
                     <div class="app-category">Games</div>
                     <h3>Memory Match</h3>
                     <p>A calm, retro memory training game to improve your focus.</p>
+                    <div class="app-footer">
+                        <span>⭐ New · 10+</span>
+                        <span class="view-link">View App →</span>
+                    </div>
+                </a>
+
+                <!-- GBA Emulator -->
+                <a href="gba-emulator.html" class="app-card">
+                    <span class="app-status status-available">Available</span>
+                    <div style="display: flex; gap: 1rem; margin-bottom: 1.5rem;">
+                        <div class="app-icon" style="background: var(--pastel-purple); width: 56px; height: 56px; border-radius: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="11" x2="10" y2="11"></line><line x1="8" y1="9" x2="8" y2="13"></line><line x1="15" y1="12" x2="15.01" y2="12"></line><line x1="18" y1="10" x2="18.01" y2="10"></line><path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z"></path></svg>
+                        </div>
+                        <img src="https://play-lh.googleusercontent.com/2X2rTsyNf91yb8BCL7mPLGpiEv7-7t9IQVx-aorQeaAd5Mi_uYQ-eP76f5kVj2fclCNjRDazpFmg6VLFKFPO=w112" class="app-icon" alt="GBA Emulator Icon" style="width: 56px; height: 56px; border-radius: 16px; object-fit: cover; box-shadow: 0 4px 10px -2px rgba(0,0,0,0.1); background: var(--card-bg); margin-bottom: 0;">
+                    </div>
+                    <div class="app-category">Games</div>
+                    <h3>GBA Emulator</h3>
+                    <p>Retro handheld GBA emulator with 60 FPS, save states, and cheats.</p>
                     <div class="app-footer">
                         <span>⭐ New · 0+</span>
                         <span class="view-link">View App →</span>
@@ -741,5 +788,245 @@
         });
     })();
 </script>
+
+    <!-- Game Promo Modal (Option 3) -->
+    <div id="game-modal-overlay" class="game-modal-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <div class="game-modal-card">
+            <button class="game-modal-close" id="game-modal-close" aria-label="Close modal">&times;</button>
+            <div class="game-modal-badge">✨ Featured Release</div>
+            <div class="game-modal-icon-wrap">
+                <img src="https://play-lh.googleusercontent.com/RUHJFStvbtZ89wE9t4y4ZmQJB4rGWFo1-l_-nzSWNeizZt6IbcKT5koypRjw3wzjh2jCdGVFoYxNDtIEeCDcfA=w112" alt="Memory Match icon" class="game-modal-img">
+            </div>
+            <h2 id="modal-title" class="game-modal-title">Memory Match</h2>
+            <p class="game-modal-desc">Train your brain and unwind with our calm, retro memory training puzzle designed to sharpen focus and relieve stress.</p>
+            <div class="game-modal-stats">
+                <span>🎮 Brain Training</span>
+                <span>🧩 Retro Gameplay</span>
+                <span>🛡️ Minimal Ads</span>
+            </div>
+            <div class="game-modal-actions">
+                <a href="memory-game.html" class="btn btn-dark game-modal-btn">Explore Game & Play</a>
+                <button class="game-modal-skip" id="game-modal-skip">Maybe Later</button>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .game-modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.65);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.3s ease;
+        }
+
+        .game-modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .game-modal-card {
+            background: var(--card-bg, #ffffff);
+            color: var(--text-primary, #0f172a);
+            border: 1px solid var(--border-color, #e2e8f0);
+            border-radius: 28px;
+            padding: 2.25rem 2rem 1.85rem;
+            max-width: 420px;
+            width: 100%;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            transform: scale(0.92) translateY(20px);
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .game-modal-overlay.active .game-modal-card {
+            transform: scale(1) translateY(0);
+        }
+
+        .game-modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1.15rem;
+            background: transparent;
+            border: none;
+            font-size: 1.75rem;
+            color: var(--text-secondary, #64748b);
+            cursor: pointer;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: background 0.2s ease, color 0.2s ease;
+            line-height: 1;
+        }
+
+        .game-modal-close:hover {
+            background: rgba(0, 0, 0, 0.05);
+            color: var(--text-primary);
+        }
+
+        [data-theme="dark"] .game-modal-close:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .game-modal-badge {
+            display: inline-block;
+            font-size: 0.78rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: #db2777;
+            background: rgba(219, 39, 119, 0.1);
+            padding: 0.35rem 0.85rem;
+            border-radius: 9999px;
+            margin-bottom: 1.25rem;
+        }
+
+        .game-modal-icon-wrap {
+            width: 80px;
+            height: 80px;
+            border-radius: 22px;
+            margin: 0 auto 1.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--pastel-pink, #fce7f3), var(--pastel-purple, #f3e8ff));
+            box-shadow: 0 10px 25px -5px rgba(219, 39, 119, 0.25);
+            overflow: hidden;
+        }
+
+        .game-modal-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 22px;
+        }
+
+        .game-modal-title {
+            font-size: 1.65rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .game-modal-desc {
+            font-size: 0.95rem;
+            color: var(--text-secondary, #64748b);
+            line-height: 1.55;
+            margin-bottom: 1.25rem;
+        }
+
+        .game-modal-stats {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            font-size: 0.78rem;
+            color: var(--text-secondary, #64748b);
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .game-modal-stats span {
+            background: rgba(0, 0, 0, 0.03);
+            border: 1px solid var(--border-color, #e2e8f0);
+            padding: 0.3rem 0.65rem;
+            border-radius: 8px;
+        }
+
+        [data-theme="dark"] .game-modal-stats span {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .game-modal-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 0.65rem;
+        }
+
+        .game-modal-btn {
+            width: 100%;
+            padding: 0.85rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+            border-radius: 9999px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .game-modal-skip {
+            background: transparent;
+            border: none;
+            color: var(--text-secondary, #64748b);
+            font-size: 0.85rem;
+            cursor: pointer;
+            padding: 0.4rem;
+            text-decoration: underline;
+            transition: color 0.2s ease;
+        }
+
+        .game-modal-skip:hover {
+            color: var(--text-primary);
+        }
+    </style>
+
+    <script>
+        (function() {
+            const modalOverlay = document.getElementById('game-modal-overlay');
+            const closeBtn = document.getElementById('game-modal-close');
+            const skipBtn = document.getElementById('game-modal-skip');
+
+            function openModal() {
+                if (!modalOverlay) return;
+                modalOverlay.classList.add('active');
+                modalOverlay.setAttribute('aria-hidden', 'false');
+            }
+
+            function closeModal() {
+                if (!modalOverlay) return;
+                modalOverlay.classList.remove('active');
+                modalOverlay.setAttribute('aria-hidden', 'true');
+                try {
+                    sessionStorage.setItem('dismissed_memory_match_promo', 'true');
+                } catch(e) {}
+            }
+
+            let dismissed = false;
+            try {
+                dismissed = sessionStorage.getItem('dismissed_memory_match_promo') === 'true';
+            } catch(e) {}
+
+            // Open after slight delay on first page load
+            if (!dismissed) {
+                setTimeout(openModal, 700);
+            }
+
+            if (closeBtn) closeBtn.addEventListener('click', closeModal);
+            if (skipBtn) skipBtn.addEventListener('click', closeModal);
+
+            if (modalOverlay) {
+                modalOverlay.addEventListener('click', (e) => {
+                    if (e.target === modalOverlay) closeModal();
+                });
+            }
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && modalOverlay && modalOverlay.classList.contains('active')) {
+                    closeModal();
+                }
+            });
+        })();
+    </script>
 </body>
 </html>

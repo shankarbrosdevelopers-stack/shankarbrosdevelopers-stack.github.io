@@ -201,6 +201,29 @@ static_apps = {
         ],
         "cta_title": "Ready to test your memory?",
         "mockup": "bloom_mockup.png"
+    },
+    "com.shankarbros.gbaemulator": {
+        "filename": "gba-emulator.html",
+        "nav_name": "GBA Emulator",
+        "badge": "🕹️ GBA Emulator · Games",
+        "badge_color": "var(--accent-purple)",
+        "hero_h1": "Relive the <span>classics.</span>",
+        "features": [
+            ("var(--pastel-purple)", "🎮", "60 FPS Gameplay", "Smooth, lag-free retro handheld experience."),
+            ("var(--pastel-blue)", "💾", "Save States", "Save and load your game progress anytime."),
+            ("var(--pastel-green)", "🕹️", "Gamepad Support", "Full Bluetooth and USB controller compatibility."),
+            ("var(--pastel-yellow)", "⚡", "Fast Forward", "Speed up dialogues and grinding with turbo mode."),
+            ("var(--pastel-pink)", "👾", "Cheat Codes", "Support for GameShark, Action Replay & CodeBreaker."),
+            ("var(--pastel-orange)", "🔒", "Offline & Private", "No accounts, no tracking, pure offline gaming.")
+        ],
+        "steps_title": "Three steps to play 🕹️",
+        "steps": [
+            ("var(--pastel-purple)", "01", "Load ROM", "Select your legal GBA ROM file."),
+            ("var(--pastel-blue)", "02", "Configure", "Customize touch controls or connect gamepad."),
+            ("var(--pastel-green)", "03", "Play", "Enjoy your favorite classic games anywhere.")
+        ],
+        "cta_title": "Ready to play classic games?",
+        "mockup": "bloom_mockup.png"
     }
 }
 
