@@ -224,6 +224,29 @@ static_apps = {
         ],
         "cta_title": "Ready to play classic games?",
         "mockup": "bloom_mockup.png"
+    },
+    "com.shankarbros.timestamp": {
+        "filename": "timeseal.html",
+        "nav_name": "TimeSeal",
+        "badge": "📍 TimeSeal · Tools",
+        "badge_color": "var(--accent-blue)",
+        "hero_h1": "Proof in every <span>frame.</span>",
+        "features": [
+            ("var(--pastel-blue)", "📍", "Live GPS Coordinates", "Accurate latitude, longitude, altitude, and address."),
+            ("var(--pastel-orange)", "🕒", "Tamper-Proof Time", "Network-synchronized atomic time and date stamps."),
+            ("var(--pastel-green)", "🧭", "Compass & Direction", "Directional heading and compass bearing on photo."),
+            ("var(--pastel-purple)", "🏗️", "Project Watermarks", "Custom notes, project name, surveyor info, and logo."),
+            ("var(--pastel-pink)", "📷", "HD Photo & Video", "High-resolution photo and video recording with stamps."),
+            ("var(--pastel-yellow)", "🔒", "100% Offline & Private", "No accounts, no cloud uploads, photos stay on device.")
+        ],
+        "steps_title": "Three steps to seal 📍",
+        "steps": [
+            ("var(--pastel-blue)", "01", "Frame", "Point your camera at the site or subject."),
+            ("var(--pastel-orange)", "02", "Customize", "Choose your timestamp template and metadata."),
+            ("var(--pastel-green)", "03", "Capture", "Save verified, tamper-evident photos instantly.")
+        ],
+        "cta_title": "Ready for verified timestamps?",
+        "mockup": "bloom_mockup.png"
     }
 }
 

@@ -11,7 +11,8 @@ const appIds = [
     'com.shankarbros.teleprompter',
     'com.shankarbros.bubblelevel',
     'com.shankarbros.memorygame',
-    'com.shankarbros.gbaemulator'
+    'com.shankarbros.gbaemulator',
+    'com.shankarbros.timestamp'
 ];
 
 console.log(`Fetching reviews for ${appIds.length} apps...`);
