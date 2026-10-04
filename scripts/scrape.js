@@ -12,7 +12,9 @@ const appIds = [
     'com.shankarbros.bubblelevel',
     'com.shankarbros.memorygame',
     'com.shankarbros.gbaemulator',
-    'com.shankarbros.timestamp'
+    'com.shankarbros.timestamp',
+    'com.shankarbros.ruler',
+    'com.shankarbros.morsecodeflash'
 ];
 
 console.log(`Fetching details for ${appIds.length} apps...`);

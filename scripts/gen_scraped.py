@@ -247,6 +247,52 @@ static_apps = {
         ],
         "cta_title": "Ready for verified timestamps?",
         "mockup": "bloom_mockup.png"
+    },
+    "com.shankarbros.ruler": {
+        "filename": "ruler.html",
+        "nav_name": "Ruler",
+        "badge": "📏 Ruler · Tools",
+        "badge_color": "var(--accent-orange)",
+        "hero_h1": "Precision in every <span>measurement.</span>",
+        "features": [
+            ("var(--pastel-orange)", "📏", "Digital Screen Ruler", "Measure in mm, cm, decimal inches & fractional inches."),
+            ("var(--pastel-blue)", "📐", "Dual Caliper Sliders", "Two-finger touch calipers for small objects like bolts & jewelry."),
+            ("var(--pastel-green)", "🧭", "360° Protractor", "Measure precise surface angles and slopes easily."),
+            ("var(--pastel-purple)", "⚖️", "Spirit Bubble Level", "2D bullseye bubble level for alignment and leveling."),
+            ("var(--pastel-yellow)", "💳", "Card Calibration", "Zero error calibration using a standard card or physical ruler."),
+            ("var(--pastel-pink)", "🔒", "Offline & Private", "No telemetry, no tracking, lightweight native utility.")
+        ],
+        "steps_title": "Three steps to measure 📏",
+        "steps": [
+            ("var(--pastel-orange)", "01", "Calibrate", "Calibrate once using a card or coin for 100% accuracy."),
+            ("var(--pastel-blue)", "02", "Position", "Place object on screen and adjust caliper sliders."),
+            ("var(--pastel-green)", "03", "Read", "Read instant precise millimeter or inch dimensions.")
+        ],
+        "cta_title": "Ready to measure with precision?",
+        "mockup": "bloom_mockup.png"
+    },
+    "com.shankarbros.morsecodeflash": {
+        "filename": "morse-code-flash.html",
+        "nav_name": "Morse Code Flash",
+        "badge": "⚡ Morse Flash · Tools",
+        "badge_color": "var(--accent-purple)",
+        "hero_h1": "Light signals for <span>every emergency.</span>",
+        "features": [
+            ("var(--pastel-purple)", "🔦", "High-Intensity Flash", "Ultra-bright camera LED torch with instant SOS transmission."),
+            ("var(--pastel-blue)", "📡", "Emergency SOS Beacon", "One-tap international distress light beacon in Morse code."),
+            ("var(--pastel-green)", "📝", "Text to Morse Converter", "Type any sentence and flash or play it back in real time."),
+            ("var(--pastel-orange)", "🎓", "190+ Practice Levels", "Interactive lessons to master Morse code letters and numbers."),
+            ("var(--pastel-yellow)", "🚨", "Screen Strobe & Audio", "Multi-frequency sound and colorful screen strobe signals."),
+            ("var(--pastel-pink)", "🔒", "100% Offline Survival", "Zero internet needed, works anywhere in the wilderness.")
+        ],
+        "steps_title": "Three steps to signal ⚡",
+        "steps": [
+            ("var(--pastel-purple)", "01", "Select", "Choose SOS emergency beacon or type custom text."),
+            ("var(--pastel-blue)", "02", "Transmit", "Flash Morse code via camera LED or screen light."),
+            ("var(--pastel-green)", "03", "Practice", "Learn Morse code with gamified offline levels.")
+        ],
+        "cta_title": "Ready for reliable emergency signaling?",
+        "mockup": "bloom_mockup.png"
     }
 }
 
